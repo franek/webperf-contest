@@ -37,12 +37,7 @@ ul.arrow{
   margin:0;
   padding:0;
 }
-/*ul.arrow li{
-  list-style-image:url(http://www.fnac.com/Img/account/MyFnac/ACC_fleche.gif);
-  list-style-position:outside;
-  margin:0 0 0 10px;
-  padding:0;
-}*/
+
 .sanspuce{
   list-style-type:none!important;
 }
@@ -888,10 +883,6 @@ body.adherents #subfooter a{
 {
   background:url(navn2_background.png) no-repeat left top;
 }
-/*body.enfants #navigation .header .topleft, body.enfants #navigation .header, body.enfants #navigation .header h2, body.enfants #navigation .bottom, body.enfants #navigation .bottom div
-{
- background:url(/Img/v2/skin/navn3_background.png) no-repeat left top;
-}*/
 #navigation .header, #navigation .bottom , .navigation .header, .navigation .bottom, body.enfants #navigation .header, body.enfants #navigation .bottom{
   padding:0 0 0 14px;
 }
@@ -1315,22 +1306,9 @@ Afin de ne pas faire de  redondance de code, les sélecteurs seront simplement dé
 .produit dd.pictocoeur{
   background-image:url(minipictocoeur.gif);
 }
-/*.produit dd.picto20pourcent{
-  background-image:url(http://www.fnac.com/Img/v2/pictos/minipicto20pourcent.gif);
-}
-.produit dd.picto38pourcent{
-  background-image:url(http://www.fnac.com/Img/v2/pictos/minipicto38pourcent.gif);
-}
-.produit dd.pictopremier{
-  background-image:url(http://www.fnac.com/Img/v2/pictos/minipictopremier.gif);
-}*/
 .produit dd.pictoadh{
   background-image:url(minipictoadh.gif);
 }
-/*
-.produit dd.pictoadh6{
-  background-image:url(http://www.fnac.com/Img/v2/pictos/minipictoadh6.gif);
-}*/
 .produit dd.pictotalent{
   background-image:url(minipictotalent.gif);
 }
@@ -1368,10 +1346,6 @@ dd.pictoCadeauFnacmusic div {margin:0 0 0 25px;font-size:11px;}
 .produit dd.pictoexcluadh{
   background-image:url(minipictoexcluadh.png);
 }
-/*
-.produit dd.pictoideecadeau{
-  background-image:url(http://www.fnac.com/Img/v2/pictos/pictoideecadeau.png);
-}*/
 
 .produit dd .delStylePrice{
   font-weight:normal;
@@ -2918,10 +2892,8 @@ background-image:url(block_cadre_prod_noir_corner.png);
 .block_blanc .blk_header, .block_blanc .blk_header span, .block_blanc .blk_header a{
   color:#666; /* gris */
   background-color:#FFF; /* blanc */
-/*background-image:url(/Img/v2/skin/blocks/block_blanc_header.png); */
 }
 .block_blanc .flat .blk_header, .block_blanc .flat .blk_header span, .block_blanc .flat .blk_header a{
-  /* background-image:url(/Img/v2/skin/blocks/block_blanc_flat_header.png); */
 }
 .block_blanc .tl, .block_blanc .tr, .block_blanc .bl, .block_blanc .br{
   background-image:url(block_blanc_corners.png);
@@ -2968,7 +2940,6 @@ background-image:url(block_cadre_prod_noir_corner.png);
 /* ======= block_violet_mea (fnac gaming)=======*/
 .block_violet_mea  .blk_header, .block_violet_mea  .blk_header span, .block_violet_mea  .blk_header a{
   background-color:#FFF; 
- /** background-image:url(http://www.fnac.com/Img/v2/skin/blocks/block_violet_mea_header.png);*/
 }
 .block_violet_mea .produit dt, .block_violet_mea .produit dt a{
   font-weight:bold;
@@ -4192,20 +4163,6 @@ body.popUpCredit #content{
 .plan #content .col3{float:left;width:31%;}
 .plan #content div{overflow:hidden}
 
-
-/* ===================
- Conseils Persos
-=====================*/
-/*.conseilperso {background-image:url(conseil_perso_ul_bg.jpg);background-repeat:no-repeat;background-position:left top;padding:0;margin:0}
-.conseilperso li {padding:8px;list-style-image:none;list-style-position:outside;list-style-type:none;margin:0;border-bottom:solid 1px #cccccc;background-image:url(conseil_perso_li_bg.jpg);background-repeat:no-repeat;background-position:left bottom;}
-.conseilperso li.last {background:none;border:none;padding-bottom:0}
-.conseilperso .produit .img {margin-right:2px;}
-.conseilperso .produit dt,.conseilperso .produit dd {padding-left:8px}
-.conseilperso .produit dt,.conseilperso .produit dt	a {color:#000}
-.cperso_btm {background-image:url(myfnac_logo.jpg);background-repeat:no-repeat;background-position:right 0;height:50px;margin:0;padding:20px 0 0 0}
-.cperso_btm ul {padding:0;margin:0}
-.cperso_btm li {padding:0;list-style-image:none;list-style-position:outside;list-style-type:none;margin:0;}*/
-/* *** */
 
 /* lien compteur vente flash */
 #smartAff,.smartAff_lien,.smartAff_lien a {

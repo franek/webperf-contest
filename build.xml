@@ -12,20 +12,24 @@
 	<property name="ftp.password" value="4cc5b38b1c1b8" />
 
 	<phingcall target="nettoyage" />
+	<phingcall target="copy-image" />
 	<phingcall target="minify-js" />
 	<phingcall target="concat-css" />
 	<phingcall target="transform-html" />
-	<phingcall target="copy-image" />
 </target>
 
 <!-- copie des images -->
 <target name="copy-image" >
 	<copy todir="." overwrite="true">
 		<fileset dir="sources/">
-		    <include name="*.gif" />
-		    <include name="*.png" />
-		    <include name="*.jpeg" />
-		    <include name="*.ico" />
+		    <include name="**.gif" />
+		    <include name="**.png" />
+		    <include name="**.jpeg" />
+		    <include name="**.jpg" />
+		    <include name="**.ico" />
+		    <include name="iframe-footer/*.jpg" />
+		    <include name="iframe-footer/*.png" />
+		    <include name="iframe-footer/*.gif" />
 		</fileset>
 	</copy>
 </target>
@@ -40,6 +44,7 @@
 		    <include name="iframe-footer/*.*" />
 		    <include name="*.png" />
 		    <include name="*.jpeg" />
+		    <include name="*.jpg" />
 		    <include name="*.gif" />
 		 </fileset>
 	</delete>
@@ -90,15 +95,15 @@
 		  </tidyfilter>-->
 		<replaceregexp>
 			<!-- on supprime l'appel aux autres feuilles de style -->
-			<regexp pattern="&lt;link rel=&quot;stylesheet(.+)" replace="" ignoreCase="true"/>
+			<!--<regexp pattern="&lt;link rel=&quot;stylesheet(.+)" replace="" ignoreCase="true"/>-->
 
 			<!-- supprime tous les lignes vides -->
 			<regexp pattern="^\s*|\s*$" replace="" ignoreCase="true"/>
 
 			<!--on remplace la première feuille de style par global.css (uniquement dans index.html)-->
-			<regexp pattern="&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;" replace="&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;global.css&quot;&gt;" ignoreCase="true"/>
+			<!--<regexp pattern="&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;" replace="&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;global.css&quot;&gt;" ignoreCase="true"/>-->
 			<!-- on remplace les fichiers JS par les versions minifiés -->
-			<regexp pattern="src=&quot;([\w.]+).js" replace="src=&quot;js/\1-min.js" ignoreCase="true"/>
+			<regexp pattern="src=&quot;([\w.-]+).js&quot;" replace="src=&quot;js/\1-min.js" ignoreCase="true"/>
 
 		</replaceregexp>
 		</filterchain>
@@ -107,7 +112,7 @@
 
 <!-- concaténation des fichiers CSS -->
 <target name="concat-css">
-	<append destFile="global.css">
+	<append destFile="concat.css">
 	  <filterchain>
 		<stripwhitespace />
 	  </filterchain>
@@ -120,8 +125,14 @@
 	</append>
 	<copy file="sources/iframe-footer/footer.css" tofile="iframe-footer/footer.css" overwrite="true"/>
 	<echo msg="Compression avec Yuicompressor" />
-	<exec command="yui-compressor --type css --line-break 25 global.css -o global.css" />
+	<exec command="yui-compressor --type css --line-break 25 concat.css -o concat.css" />
 	<exec command="yui-compressor --type css --line-break 25 footer.css -o footer.css" />
+
+	<!-- mise en place de datauri -->
+	<echo msg="intégration datauri" />
+	<exec command="java -jar cssembed-0.3.3.jar concat.css -o global.css" outputproperty="returncssembed" />
+	<exec command="java -jar cssembed-0.3.3.jar concat.css -o global-ie.css --mhtml --mhtmlroot http://entries.webperf-contest.com/4cc5b38b1c1b8/" outputproperty="returncssembed" />
+	<echo message="${returncssembed}" />
 </target>
 
 <!-- déploiement des sources sur le serveur FTP -->
@@ -139,6 +150,7 @@
     <exclude name="images/**.png"/>
     <exclude name="images/**.gif"/>
     <exclude name="images/**.jpg"/>
+    <exclude name="images/**.jpeg"/>
   </fileset>
 </ftpdeploy>
 

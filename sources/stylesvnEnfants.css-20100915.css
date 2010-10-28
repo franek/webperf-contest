@@ -41,11 +41,6 @@
 	width:545px;
 	min-height:353px;
 }
-/* l'image de background est précisée en ligne */
-/*#mea_enf .line_3cols .block {float:left;margin-right:7px;width:31.5%}
-#mea_enf .line_3cols .block_last {float:none;margin-right:0;width:31.5%}
-#mea_enf .mise_en_avant .tl, #mea_enf .mise_en_avant .tr, #mea_enf .mise_en_avant .bl, #mea_enf .mise_en_avant .br {
-background-image:url(/img/v2/skin/blocks/mea_enf_corners.png);	}*/
 #mea_enf .prix {height:22px;}
 
 
