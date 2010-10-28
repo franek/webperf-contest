@@ -151,6 +151,7 @@
     <exclude name="images/**.gif"/>
     <exclude name="images/**.jpg"/>
     <exclude name="images/**.jpeg"/>
+    <exclude name=".git">
   </fileset>
 </ftpdeploy>
 
