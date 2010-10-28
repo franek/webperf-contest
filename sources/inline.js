@@ -57,14 +57,6 @@
 				});
 			});
 
-		function PopUpService(theURL,Largeur,Hauteur) {
-		window.open(theURL,'diaporama','toolbar=no,location=no,menubar=no,status=no,scrollbars=yes,resizable=yes,width='+Largeur+',height='+Hauteur);
-		}
-
-		function PopUpNoOrder() {
-		
-		}
-
 $(function () {
 	// au passage de la souris sur le lien de l'onglet
 	$("#onglets li a").mouseenter(function(){
@@ -91,10 +83,6 @@ $(function () {
 
 });
 
-    function LaunchSearch(){
-    	window.open('http://www4.fnac.com/r/'+$("#Fnac_Search").val()+'?SCat='+$("#SCat").val()+'&sft='+$("#sft").val(),'_self');
-    }
-
 function ChangeContext()
 {
 var context =  $("#ebook").val();
@@ -118,207 +106,6 @@ function checkKey()
     }
 
 
-
-//-----------------------------------------------------------------------//
- //                   Gestion du player 30s
-//-------------------------------------------------------------------------//
-
-
-            var StreamPlayer = null;
-            var NewStreamPlayer = false;
-            var onPlayFlag = false;//etat du player:lecture/arret
-            var IsOpen = false;//etat du player:fermer/ouvert
-            //Mise a jour de l"etat du player depuis les cookies --%>
-            var temp=GetPlayerCookie("PlayerPlaying");
-var lRootNid=-57;
-var vnDisques=-2;
-var vnFnacMusic=-70;
-            
-            switch (temp)
-             {
-                case '1':  
-                    onPlayFlag=true;
-                    break;
-                case '0':
-                    onPlayFlag = false;
-                    break;
-            }
-            
-            temp = GetPlayerCookie("Player");
-           
-            switch (temp)
-             {
-                case '1':  
-                    
-                    IsOpen=true;
-                    break;
-                case '0':
-                    IsOpen = false;
-                    break;
-            }
-            //On force la création du player pour pouvoir mettre a jour correctement les valeur des cookies 
-if((lRootNid==vnDisques)||(lRootNid==vnFnacMusic))
-{
-            if(IsOpen)
-                 StreamPlayer = getStreamPlayerWindow();
-}
-           
-            var ParamAddProduct = null;
-            var playing = false;
-            var typePlaying = '';
-            function getStreamPlayerWindow()
-			{
-				var wwwNetRootUrl = 'http://www4.fnac.com';
-				try
-				{
-				    NewStreamPlayer = false;
-					var widthscreen = screen.Width;
-					var widthplayer = 997 ;
-					var heightscreen = screen.Height;
-					var heightplayer = 520 ;
-				    var posleft = parseInt((screen.availWidth/2) - (widthplayer/2))+300;
-                    var postop = parseInt((screen.availHeight/2) - (heightplayer/2));
-					//var postop = 50;//heightscreen - heightplayer;
-					//var posleft = (widthscreen - widthplayer) / 2;
-       		      
-       		      
-					var playerWindow = window.open("", "Player30sec", "menubar=no,directories=no,location=no,resizable=yes,titlebar=no,scrollbars=no,status=no,toolbar=no,height=1px,width=1px,top="+postop+",left="+posleft+"");
-					
-					var wwwNetRootUrl = 'http://www4.fnac.com';
-					if(playerWindow == null)
-					{
-//						alert("Attention!, le lecteur 30 sec Fnacmusic nécessite l'activation des fenêtres extérieures sur le domaine www.fnac.com. Vous semblez utiliser un bloqueur de fenêtres intempestives, merci de permettre les fenêtres sur http://www.fnac.com.");
-					    return null;
-					}
-                    try
-					{
-					    if(playerWindow.document.getElementById("divPlayer") == null)
-				        {
-						    NewStreamPlayer = true;
-						    playerWindow.location.href = wwwNetRootUrl + "/shelf/common/content/Player30s.aspx";
-					    }
-					}
-					catch(e)
-				    {
-						NewStreamPlayer = true;
-						playerWindow.location.href = wwwNetRootUrl + "/shelf/common/content/Player30s.aspx";
-					}			
-
-			    return playerWindow;
-				}
-				catch(e)
-				{
-//					alert("Erreur!, le lecteur 30 sec Fnacmusic nécessite l'activation des fenêtres extérieures sur le domaine www.fnac.com. Vous semblez utiliser un bloqueur de fenêtres intempestives, merci de permettre les fenêtres sur http://www.fnac.com.");
-					return null;
-				}
-			}
-			
-			
-		
-			
-            function AddProductPointer()
-			{
-			    
-		        if (ParamAddProduct && StreamPlayer)
-		        {		
-			        StreamPlayer.AddProduct(ParamAddProduct,playing);
-			        ParamAddProduct = null;	   
-				}				
-			}
-			
-			
-			//Ajout d" track au player 30s --%>
-            function AddProduct(id,type)
-			{			          			
-                
-                playing = false;
-                typePlaying = type;
-				StreamPlayer = getStreamPlayerWindow();
-
-				if (StreamPlayer != null && id != null && id != '')
-				{				
-					ParamAddProduct = id;
-					if (NewStreamPlayer)
-					{				
-					    //new popup
-					    playing = true;   
-						setTimeout(AddProductPointer, 3000);						
-					}
-					else
-					{
-						AddProductPointer();
-					}
-				}
-				var isChrome = /chrome/.test(navigator.userAgent.toLowerCase());
-                if (isChrome) {
-                    StreamPlayer.blur();
-                }
-                StreamPlayer.focus(); 
-			}
-			
-			
-			
-			//Bouton play/stop permet de gerer la lecture exclusive entre le lecteur 30s et le lecteur coeur de page --%>
-			function DoPlay(flag)
-			{
-			     
-			    try
-			    {     
-			        if (StreamPlayer)
-				    {
-					
-					    StreamPlayer.DoPlay(flag);
-				    }
-				    else
-				    {
-				      //Si le lecteur a été ouvert dans une page précédente --%>
-				        if(IsOpen)
-			            {
-			                StreamPlayer = getStreamPlayerWindow();
-                            if (StreamPlayer)
-				            {
-				                StreamPlayer.DoPlay(flag);
-				            }
-			            }
-				    }
-				}
-				catch(e)
-				{}
-			} 
-			
-			//retour sur l"etat du player --%>
-			function Onplay(flag)
-			{
-			     //On sauvegarde l'etat du player 30s  --%>
-			     onPlayFlag = flag;
-			     //Si le player a passé à l'etat lecture on stoppe le lecteur coeur de page  --%>
-			     
-			     if(onPlayFlag == true)
-			     {
-			    
-			        //if(status == 'playing')
-			        {
-			            try
-                        {
-                            MultiAudioPlayer.stopCurrentPlayer();
-                           //StopMediaWithId(null, _playingid)
-                        }
-                        catch(e)
-                        {}
-			        }   
-			    }
-			}
-			//retour lors d"un ajout au player --%>
-			function OnItemAdded(ids)
-			{
-			   
-			}
-			function PlayThisMedia (eventArgs, who)
-			{
-			  Onplay();
-			  
-			    
-			}
 //--------------------------------------------------------------------------------------//
 			//                  Gestion de la navigation
 //--------------------------------------------------------------------------------------//
@@ -406,49 +193,10 @@ if((lRootNid==vnDisques)||(lRootNid==vnFnacMusic))
 	//---------------------------------------------------------------------//		
 
 
-function DisplayPopUp(theURL) {
-		window.open(theURL,'PopUp','toolbar=no,location=no,menubar=no,status=no,top=0,left=0,resizable=yes,scrollbars=yes,width=530,height=585');
-	}
-
-	function DisplayPopUpGratuit(theURL) {
-		window.open(theURL,'PopUp','toolbar=no,location=no,menubar=no,status=no,top=0,left=0,resizable=yes,scrollbars=yes,width=530,height=585');
-	}
-
-
-	function Diaporamas(theURL,Largeur,Hauteur) {
-		window.open(theURL,'diaporama','toolbar=no,location=no,menubar=no,status=no,scrollbars=no,resizable=yes,top=0,left=0,width='+Largeur+',height='+Hauteur);
-	}
-
-	function SonDiapo(theURL) {
-		window.open(theURL,'diaporama','top=0,left=0');
-	}
-
-	function EteFnac(theURL,Largeur,Hauteur) {
-		window.name = 'ete_fnac'
-		window.open(theURL,'EteFnac','toolbar=no,location=no,menubar=no,status=no,scrollbars=no,width='+Largeur+',height='+Hauteur);
-	}
-
 	function PopupLibre(theURL, Largeur, Hauteur) {
 		window.open(theURL,'diaporama','toolbar=auto,location=no,menubar=no,status=no,scrollbars=yes,resizable=yes,top=0,left=0,width='+Largeur+',height='+Hauteur);
 		return false;
 	}
-	
-	function PopupNoLibre(theURL, Largeur, Hauteur) {
-		window.open(theURL,'diaporama','toolbar=auto,location=no,menubar=no,status=no,scrollbars=no,top=0,left=0,width='+Largeur+',height='+Hauteur);
-		return false;
-	}
-	 function switcherBandeau(id){
-         m = document.getElementById("bandeauTournantImages");
-         l = m.getElementsByTagName("img");
-         for (var i = 0; i < l.length; i++)
-         {
-           l[i].style.display = "none";
-           if (l[i].id==id)
-           {
-             l[i].style.display = "block";
-           }
-         }
-       }
        function switcherBandeau(id){
          m = document.getElementById("bandeauTournantImages");
          l = m.getElementsByTagName("img");
