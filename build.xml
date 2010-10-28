@@ -15,7 +15,19 @@
 	<phingcall target="minify-js" />
 	<phingcall target="concat-css" />
 	<phingcall target="transform-html" />
-<!--	<phingcall target="copy-image" />-->
+	<phingcall target="copy-image" />
+</target>
+
+<!-- copie des images -->
+<target name="copy-image" >
+	<copy todir="." overwrite="true">
+		<fileset dir="sources/">
+		    <include name="*.gif" />
+		    <include name="*.png" />
+		    <include name="*.jpeg" />
+		    <include name="*.ico" />
+		</fileset>
+	</copy>
 </target>
 
 <!-- nettoyage du projet avant démarrage -->
@@ -26,6 +38,9 @@
 		    <include name="*.html" />
 		    <include name="*.css" />
 		    <include name="iframe-footer/*.*" />
+		    <include name="*.png" />
+		    <include name="*.jpeg" />
+		    <include name="*.gif" />
 		 </fileset>
 	</delete>
 </target>
@@ -52,7 +67,8 @@
 		</fileset>
 		<filterchain>
 		  <!-- encodage du projet en latin1 -->
-		  <!--<tidyfilter encoding="latin1">
+		  <!--ne fonctionne pas ?
+		  <tidyfilter encoding="latin1">
 		    <config name="indent" value="false" />
 		    <config name="wrap" value="false" />
 		    <config name="hide-comments" value="true" />
