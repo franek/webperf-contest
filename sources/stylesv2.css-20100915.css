@@ -4196,7 +4196,7 @@ body.popUpCredit #content{
 /* ===================
  Conseils Persos
 =====================*/
-.conseilperso {background-image:url(conseil_perso_ul_bg.jpg);background-repeat:no-repeat;background-position:left top;padding:0;margin:0}
+/*.conseilperso {background-image:url(conseil_perso_ul_bg.jpg);background-repeat:no-repeat;background-position:left top;padding:0;margin:0}
 .conseilperso li {padding:8px;list-style-image:none;list-style-position:outside;list-style-type:none;margin:0;border-bottom:solid 1px #cccccc;background-image:url(conseil_perso_li_bg.jpg);background-repeat:no-repeat;background-position:left bottom;}
 .conseilperso li.last {background:none;border:none;padding-bottom:0}
 .conseilperso .produit .img {margin-right:2px;}
@@ -4204,7 +4204,7 @@ body.popUpCredit #content{
 .conseilperso .produit dt,.conseilperso .produit dt	a {color:#000}
 .cperso_btm {background-image:url(myfnac_logo.jpg);background-repeat:no-repeat;background-position:right 0;height:50px;margin:0;padding:20px 0 0 0}
 .cperso_btm ul {padding:0;margin:0}
-.cperso_btm li {padding:0;list-style-image:none;list-style-position:outside;list-style-type:none;margin:0;}
+.cperso_btm li {padding:0;list-style-image:none;list-style-position:outside;list-style-type:none;margin:0;}*/
 /* *** */
 
 /* lien compteur vente flash */
