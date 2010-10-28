@@ -53,9 +53,24 @@
 	    <include name="jquery.js"/>
 	    <include name="package.js"/>
 	    <include name="master.js"/>
+	    <include name="inline.js"/>
 	    <include name="s_code.js-h.14.20090227.js"/>
   	</fileset>
-</jsMin>
+	</jsMin>
+
+	<append destFile="js/global.js">
+	  <filterchain>
+		<stripwhitespace />
+	  </filterchain>
+	  <fileset dir="js/">
+		<include name="jquery.*-min.js"/>
+		<include name="jquery-min.js"/>
+	        <include name="package-min.js"/>
+	        <include name="master-min.js"/>
+	        <include name="inline-min.js"/>
+	   </fileset>
+	</append>
+	
 </target>
 
 <!-- transformation du fichier HTML-->
@@ -103,6 +118,7 @@
 		<include name="cdc_2010.css" />
 	   </fileset>
 	</append>
+	<copy file="sources/iframe-footer/footer.css" tofile="iframe-footer/footer.css" overwrite="true"/>
 	<echo msg="Compression avec Yuicompressor" />
 	<exec command="yui-compressor --type css --line-break 25 global.css -o global.css" />
 	<exec command="yui-compressor --type css --line-break 25 footer.css -o footer.css" />
@@ -114,7 +130,8 @@
   host="${ftp.host}" 
   port="21" 
   username="${ftp.username}" 
-  password="${ftp.password}">
+  password="${ftp.password}"
+  clearfirst="true" >
   <fileset dir=".">
     <include name="**"/>
     <exclude name="phing"/>
