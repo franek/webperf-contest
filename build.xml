@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<project name="webperf-contest" default="help" basedir=".">
+<target name="help">
+	<echo msg="Available targets :" />
+	<echo msg="- help ........... this message" />
+	<echo msg="- deploy ........ deploiement sur le serveur FTP" />
+</target>
+
+<target name="prepare">
+	<property name="ftp.host" value="ftp.alwaysdata.com" />
+	<property name="ftp.username" value="webperf-contest_4cc5b38b1c1b8" />
+	<property name="ftp.password" value="4cc5b38b1c1b8" />
+</target>
+
+<target name="deploy" depends="prepare" >
+<ftpdeploy 
+  host="${ftp.host}" 
+  port="21" 
+  username="${ftp.username}" 
+  password="${ftp.password}">
+  <fileset dir=".">
+    <include name="**"/>
+    <exclude name="phing"/>
+    <exclude name="build.xml"/>
+    <exclude name="images/**.png"/>
+    <exclude name="images/**.gif"/>
+    <exclude name="images/**.jpg"/>
+  </fileset>
+</ftpdeploy>
+
+</target>
+
+</project>
