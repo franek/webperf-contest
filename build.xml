@@ -27,9 +27,9 @@
 		    <include name="**.jpeg" />
 		    <include name="**.jpg" />
 		    <include name="**.ico" />
-		    <include name="iframe-footer/*.jpg" />
+<!--		    <include name="iframe-footer/*.jpg" />
 		    <include name="iframe-footer/*.png" />
-		    <include name="iframe-footer/*.gif" />
+		    <include name="iframe-footer/*.gif" />-->
 		</fileset>
 	</copy>
 </target>
@@ -41,7 +41,7 @@
 		    <include name="js/*.js" />
 		    <include name="*.html" />
 		    <include name="*.css" />
-		    <include name="iframe-footer/*.*" />
+		    <!--<include name="iframe-footer/*.*" />-->
 		    <include name="*.png" />
 		    <include name="*.jpeg" />
 		    <include name="*.jpg" />
@@ -83,7 +83,7 @@
 	<copy todir="." overwrite="true">
 		<fileset dir="sources/">
 		    <include name="index.html" />
-		    <include name="iframe-footer/engagements-pratique-entreprise.asp.html" />
+		    <!--<include name="iframe-footer/engagements-pratique-entreprise.asp.html" />-->
 		</fileset>
 		<filterchain>
 		  <!-- encodage du projet en latin1 -->
@@ -103,7 +103,7 @@
 			<!--on remplace la première feuille de style par global.css (uniquement dans index.html)-->
 			<!--<regexp pattern="&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;" replace="&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;global.css&quot;&gt;" ignoreCase="true"/>-->
 			<!-- on remplace les fichiers JS par les versions minifiés -->
-			<regexp pattern="src=&quot;([\w.-]+).js&quot;" replace="src=&quot;js/\1-min.js" ignoreCase="true"/>
+			<regexp pattern="src=&quot;([\w.-]+).js&quot;" replace="src=&quot;js/\1-min.js&quot;" ignoreCase="true"/>
 
 		</replaceregexp>
 		</filterchain>
@@ -121,12 +121,11 @@
 		<include name="jquery.autocomplete.css" />
 		<include name="stylesvnEnfants.css-20100915.css" />
 		<include name="cdc_2010.css" />
+		<include name="footer.css" />
 	   </fileset>
 	</append>
-	<copy file="sources/iframe-footer/footer.css" tofile="iframe-footer/footer.css" overwrite="true"/>
 	<echo msg="Compression avec Yuicompressor" />
 	<exec command="yui-compressor --type css --line-break 25 concat.css -o concat.css" />
-	<exec command="yui-compressor --type css --line-break 25 footer.css -o footer.css" />
 
 	<!-- mise en place de datauri -->
 	<echo msg="intégration datauri" />
