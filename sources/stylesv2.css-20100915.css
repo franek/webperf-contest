@@ -37,12 +37,12 @@ ul.arrow{
   margin:0;
   padding:0;
 }
-ul.arrow li{
+/*ul.arrow li{
   list-style-image:url(http://www.fnac.com/Img/account/MyFnac/ACC_fleche.gif);
   list-style-position:outside;
   margin:0 0 0 10px;
   padding:0;
-}
+}*/
 .sanspuce{
   list-style-type:none!important;
 }
@@ -1315,7 +1315,7 @@ Afin de ne pas faire de  redondance de code, les sélecteurs seront simplement dé
 .produit dd.pictocoeur{
   background-image:url(minipictocoeur.gif);
 }
-.produit dd.picto20pourcent{
+/*.produit dd.picto20pourcent{
   background-image:url(http://www.fnac.com/Img/v2/pictos/minipicto20pourcent.gif);
 }
 .produit dd.picto38pourcent{
@@ -1323,13 +1323,14 @@ Afin de ne pas faire de  redondance de code, les sélecteurs seront simplement dé
 }
 .produit dd.pictopremier{
   background-image:url(http://www.fnac.com/Img/v2/pictos/minipictopremier.gif);
-}
+}*/
 .produit dd.pictoadh{
   background-image:url(minipictoadh.gif);
 }
+/*
 .produit dd.pictoadh6{
   background-image:url(http://www.fnac.com/Img/v2/pictos/minipictoadh6.gif);
-}
+}*/
 .produit dd.pictotalent{
   background-image:url(minipictotalent.gif);
 }
@@ -1367,9 +1368,10 @@ dd.pictoCadeauFnacmusic div {margin:0 0 0 25px;font-size:11px;}
 .produit dd.pictoexcluadh{
   background-image:url(minipictoexcluadh.png);
 }
+/*
 .produit dd.pictoideecadeau{
   background-image:url(http://www.fnac.com/Img/v2/pictos/pictoideecadeau.png);
-}
+}*/
 
 .produit dd .delStylePrice{
   font-weight:normal;
@@ -1711,6 +1713,7 @@ ul.liste_3cols li.last{
 }
 .links a, .adherents .links a{ /* lot2 :update */
   color:#DE9C00; /* moutarde */
+
   text-decoration:none;
 }
 .links span.type2, .links span.type2 a{
@@ -2965,7 +2968,7 @@ background-image:url(block_cadre_prod_noir_corner.png);
 /* ======= block_violet_mea (fnac gaming)=======*/
 .block_violet_mea  .blk_header, .block_violet_mea  .blk_header span, .block_violet_mea  .blk_header a{
   background-color:#FFF; 
-  background-image:url(http://www.fnac.com/Img/v2/skin/blocks/block_violet_mea_header.png);
+ /** background-image:url(http://www.fnac.com/Img/v2/skin/blocks/block_violet_mea_header.png);*/
 }
 .block_violet_mea .produit dt, .block_violet_mea .produit dt a{
   font-weight:bold;
@@ -3851,6 +3854,7 @@ hr.white {
 
 #navigation.menugris .header, #navigation.menugris .header .topleft, #navigation.menugris .header h2, #navigation.menugris .bottom, #navigation.menugris .bottom div{background-image:url(navn2_background_menugris.png);}
 #navigation.menugris dl{background:#a9a9a9;color:#FFF;border:1px solid #939393;border-width:0 1px;padding:0 10px;}
+
 #navigation.menugris .topleft, #navigation.menugris h2{padding:0px;}
 #navigation.menugris dl dt, body.enfants #navigation dl dt{font-weight:bold;padding:5px 0 6px 0;}
 #navigation.menugris dl dd, body.enfants #navigation dl dd{padding:2px 0;}
