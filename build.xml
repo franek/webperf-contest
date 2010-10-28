@@ -11,12 +11,23 @@
 	<property name="ftp.username" value="webperf-contest_4cc5b38b1c1b8" />
 	<property name="ftp.password" value="4cc5b38b1c1b8" />
 
+	<phingcall target="nettoyage" />
 	<phingcall target="minify-js" />
+	<phingcall target="concat-css" />
 	<phingcall target="transform-html" />
+<!--	<phingcall target="copy-image" />-->
 </target>
 
-<target name="copy">
-
+<!-- nettoyage du projet avant démarrage -->
+<target name="nettoyage">
+	<delete>
+		<fileset dir=".">
+		    <include name="js/*.js" />
+		    <include name="*.html" />
+		    <include name="*.css" />
+		    <include name="iframe-footer/*.*" />
+		 </fileset>
+	</delete>
 </target>
 
 <!-- compression des fichiers JS -->
@@ -36,18 +47,49 @@
 <target name="transform-html">
 	<copy todir="." overwrite="true">
 		<fileset dir="sources/">
-		    <include name="**/index.html" />
+		    <include name="index.html" />
+		    <include name="iframe-footer/engagements-pratique-entreprise.asp.html" />
 		</fileset>
 		<filterchain>
-		<!-- encodage du projet en latin1 -->
-		  <tidyfilter encoding="latin1">
+		  <!-- encodage du projet en latin1 -->
+		  <!--<tidyfilter encoding="latin1">
 		    <config name="indent" value="false" />
 		    <config name="wrap" value="false" />
-		    <!--on supprime tous les commentaires-->
 		    <config name="hide-comments" value="true" />
-		  </tidyfilter>
+		  </tidyfilter>-->
+		<replaceregexp>
+			<!-- on supprime l'appel aux autres feuilles de style -->
+			<regexp pattern="&lt;link rel=&quot;stylesheet(.+)" replace="" ignoreCase="true"/>
+
+			<!-- supprime tous les lignes vides -->
+			<regexp pattern="^\s*|\s*$" replace="" ignoreCase="true"/>
+
+			<!--on remplace la première feuille de style par global.css (uniquement dans index.html)-->
+			<regexp pattern="&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;" replace="&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;global.css&quot;&gt;" ignoreCase="true"/>
+			<!-- on remplace les fichiers JS par les versions minifiés -->
+			<regexp pattern="src=&quot;([\w.]+).js" replace="src=&quot;js/\1-min.js" ignoreCase="true"/>
+
+		</replaceregexp>
 		</filterchain>
 	</copy>
+</target>
+
+<!-- concaténation des fichiers CSS -->
+<target name="concat-css">
+	<append destFile="global.css">
+	  <filterchain>
+		<stripwhitespace />
+	  </filterchain>
+	  <fileset dir="sources/">
+		<include name="stylesv2.css-20100915.css" />
+		<include name="jquery.autocomplete.css" />
+		<include name="stylesvnEnfants.css-20100915.css" />
+		<include name="cdc_2010.css" />
+	   </fileset>
+	</append>
+	<echo msg="Compression avec Yuicompressor" />
+	<exec command="yui-compressor --type css --line-break 25 global.css -o global.css" />
+	<exec command="yui-compressor --type css --line-break 25 footer.css -o footer.css" />
 </target>
 
 <!-- déploiement des sources sur le serveur FTP -->
