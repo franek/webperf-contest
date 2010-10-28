@@ -10,8 +10,47 @@
 	<property name="ftp.host" value="ftp.alwaysdata.com" />
 	<property name="ftp.username" value="webperf-contest_4cc5b38b1c1b8" />
 	<property name="ftp.password" value="4cc5b38b1c1b8" />
+
+	<phingcall target="minify-js" />
+	<phingcall target="transform-html" />
 </target>
 
+<target name="copy">
+
+</target>
+
+<!-- compression des fichiers JS -->
+<target name="minify-js">
+	<jsMin targetDir="js/" failOnError="false">
+	  <fileset dir="sources/.">
+	    <include name="jquery.*.js"/>
+	    <include name="jquery.js"/>
+	    <include name="package.js"/>
+	    <include name="master.js"/>
+	    <include name="s_code.js-h.14.20090227.js"/>
+  	</fileset>
+</jsMin>
+</target>
+
+<!-- transformation du fichier HTML-->
+<target name="transform-html">
+	<copy todir="." overwrite="true">
+		<fileset dir="sources/">
+		    <include name="**/index.html" />
+		</fileset>
+		<filterchain>
+		<!-- encodage du projet en latin1 -->
+		  <tidyfilter encoding="latin1">
+		    <config name="indent" value="false" />
+		    <config name="wrap" value="false" />
+		    <!--on supprime tous les commentaires-->
+		    <config name="hide-comments" value="true" />
+		  </tidyfilter>
+		</filterchain>
+	</copy>
+</target>
+
+<!-- déploiement des sources sur le serveur FTP -->
 <target name="deploy" depends="prepare" >
 <ftpdeploy 
   host="${ftp.host}" 
