@@ -96,17 +96,24 @@
 		  </tidyfilter>-->
 		<replaceregexp>
 			<!-- on supprime l'appel aux autres feuilles de style -->
-			<!--<regexp pattern="&lt;link rel=&quot;stylesheet(.+)" replace="" ignoreCase="true"/>-->
+			<regexp pattern="&lt;link rel=&quot;stylesheet(.+)" replace="" ignoreCase="true"/>
+
+			<!-- on supprime l'appel aux fichiers JS -->
+			<regexp pattern="&lt;script type=&quot;text/javascript&quot; src=&quot;(.+)" replace="" ignoreCase="true"/>
 
 			<!-- supprime tous les lignes vides -->
 			<regexp pattern="^[\s]*$" replace=" " ignoreCase="true"/>
 
-			<!--on remplace la première feuille de style par global.css (uniquement dans index.html)-->
-			<!--<regexp pattern="&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;" replace="&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;global.css&quot;&gt;" ignoreCase="true"/>-->
 			<!-- on remplace les fichiers JS par les versions minifiés -->
 			<!--<regexp pattern="src=&quot;([\w.-]+).js&quot;" replace="src=&quot;js/\1-min.js&quot;" ignoreCase="true"/>-->
-
 		</replaceregexp>
+			<replacetokens begintoken="&lt;!--" endtoken="--&gt;">
+			    <!--on ajoute l'appel au fichier css global-->
+			    <token key="global.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;global.css&quot;/&gt;" />
+              		    <!-- on ajoute l'appel au fichier JS global -->
+			    <token key="global.js" value="&lt;script type=&quot;text/javascript&quot; src=&quot;js/global.js&quot;&gt;&lt;/script&gt;" />
+			</replacetokens>
+
 		</filterchain>
 	</copy>
 </target>
