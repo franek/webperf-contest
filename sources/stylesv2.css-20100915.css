@@ -2722,9 +2722,6 @@ background-image:url(block_cadre_prod_orange_corner.png);
 .block_noir .cadre_produit .number {
 	border-color:#3e3e3e;
 }
-.block_noir .cadre_produit .img {
-	background:#fff none repeat scroll 0% 50%;
-}
 .block_noir .cadre_produit .tl,
 .block_noir .cadre_produit .tr,
 .block_noir .cadre_produit .bl,
