@@ -1,0 +1,45 @@
+.logo {
+	display:block;
+	width:101px;
+	height:55px;
+}
+
+.haba {
+background-image:url(enf-jouets-haba.png);
+}
+
+.lego {
+background-image:url(enf-jouets-lego.png);
+}
+
+.playmobil {
+background-image:url(enf-jouets-playmobil.png);
+}
+
+.liliputien {
+background-image:url(enf-jouets-liliputien.png);
+}
+
+.vtech {
+background-image:url(vtech.png);
+}
+
+.toys-story {
+background-image:url(toys-story-101.jpg);
+}
+
+.petshop {
+background-image:url(enf-petshop.png);
+}
+
+.twilight {
+background-image:url(twilight-101.jpg);
+}
+
+.ouioui {
+background-image:url(enf-oui_oui.png);
+}
+
+.barbie {
+background-image:url(enf-barbie.jpg);
+}
