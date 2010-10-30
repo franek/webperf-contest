@@ -2,44 +2,47 @@
 	display:block;
 	width:101px;
 	height:55px;
+	background-image     : url(sprite-logo.png);
+	background-color     : transparent;
+	background-repeat    : no-repeat;
 }
 
 .haba {
-background-image:url(enf-jouets-haba.png);
+background-position  : -0px -0px;
 }
 
 .lego {
-background-image:url(enf-jouets-lego.png);
+background-position  : -101px -0px;
 }
 
 .playmobil {
-background-image:url(enf-jouets-playmobil.png);
+background-position  : -303px -0px;
 }
 
 .liliputien {
-background-image:url(enf-jouets-liliputien.png);
+background-position  : -202px -0px;
 }
 
 .vtech {
-background-image:url(vtech.png);
+background-position  : -606px -0px;
 }
 
 .toys-story {
-background-image:url(toys-story-101.jpg);
+background-position  : -707px -0px;
 }
 
 .petshop {
-background-image:url(enf-petshop.png);
+background-position  : -505px -0px;
 }
 
 .twilight {
-background-image:url(twilight-101.jpg);
+background-position  : -808px -0px;
 }
 
 .ouioui {
-background-image:url(enf-oui_oui.png);
+background-position  : -909px -0px;
 }
 
 .barbie {
-background-image:url(enf-barbie.jpg);
+background-position  : -404px -0px;
 }
