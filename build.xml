@@ -130,6 +130,7 @@
 		<include name="stylesvnEnfants.css-20100915.css" />
 		<include name="cdc_2010.css" />
 		<include name="footer.css" />
+		<include name="logo.css" />
 	   </fileset>
 	</append>
 	<echo msg="Compression avec Yuicompressor" />
