@@ -2585,9 +2585,6 @@ background-image:url(block_cadre_prod_jaune_corner.png);
 .block_bleu .cadre_produit .number{
   border-color:#47B5DA; /* bleu clair */
 }
-.block_bleu .cadre_produit .img{
-  background:#FFF; /* blanc */
-}
 .block_bleu .produit .number, .block_bleu .produit .number span{
   background-image:url(block_bleu_number_corners.png);
   color:#FFF; /* blanc */
