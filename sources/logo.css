@@ -121,3 +121,35 @@ background-position  : -141px -0px;
 .academy {
 background-position  : -188px -0px;
 }
+
+a.img-centre{
+display:block;
+width:110px;
+height:150px;
+margin-left:30px;
+background-image: url(sprite-img-centre.jpeg);
+}
+
+.loups-garous{
+background-position  : -110px -0px;
+}
+
+.barbie-video{
+background-position  : -330px -0px;
+}
+
+.vtech-kidi {
+background-position  : -220px -0px;
+}
+
+.mattel {
+background-position  : -550px -0px;
+}
+
+.playset {
+background-position  : -440px -0px;
+}
+
+.sentosphere {
+	background-position  : -0px -0px;
+}
