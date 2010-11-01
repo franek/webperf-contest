@@ -55,7 +55,7 @@
 	<jsMin targetDir="js/" failOnError="false">
 	  <fileset dir="sources/.">
 	    <include name="jquery.*.js"/>
-	    <include name="jquery.js"/>
+<!--	    <include name="jquery.js"/>-->
 	    <include name="package.js"/>
 	    <include name="master.js"/>
 	    <include name="inline.js"/>
@@ -69,7 +69,7 @@
 	  </filterchain>
 	  <fileset dir="js/">
 		<include name="jquery.*-min.js"/>
-		<include name="jquery-min.js"/>
+<!--		<include name="jquery-min.js"/>-->
 	        <include name="package-min.js"/>
 	        <include name="master-min.js"/>
 	        <include name="inline-min.js"/>
@@ -99,19 +99,19 @@
 			<regexp pattern="&lt;link rel=&quot;stylesheet(.+)" replace="" ignoreCase="true"/>
 
 			<!-- on supprime l'appel aux fichiers JS -->
-			<regexp pattern="&lt;script type=&quot;text/javascript&quot; src=&quot;(.+)" replace="" ignoreCase="true"/>
+			<regexp pattern="\$.getScript\((.+)" replace="" ignoreCase="true"/>
 
 			<!-- supprime tous les lignes vides -->
 			<regexp pattern="^[\s]*$" replace=" " ignoreCase="true"/>
 
 			<!-- on remplace les fichiers JS par les versions minifiés -->
-			<!--<regexp pattern="src=&quot;([\w.-]+).js&quot;" replace="src=&quot;js/\1-min.js&quot;" ignoreCase="true"/>-->
+			<regexp pattern="src=&quot;([\w.-]+).js&quot;" replace="src=&quot;js/\1-min.js&quot;" ignoreCase="true"/>
 		</replaceregexp>
 			<replacetokens begintoken="&lt;!--" endtoken="--&gt;">
 			    <!--on ajoute l'appel au fichier css global-->
 			    <token key="global.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;global.css&quot;/&gt;" />
               		    <!-- on ajoute l'appel au fichier JS global -->
-			    <token key="global.js" value="&lt;script type=&quot;text/javascript&quot; src=&quot;js/global.js&quot;&gt;&lt;/script&gt;" />
+			    <token key="global.js" value="$.getScript(&quot;js/global.js&quot;);" />
 			</replacetokens>
 
 		</filterchain>

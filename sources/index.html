@@ -129,7 +129,7 @@
 	  <input type="hidden" name="bl" value="HGENFrera">
 	  <input type="hidden" name="sft" id="sft" value="1">
       <span class="submit">
-        <input type="submit" name="submitbtn" id="submitbtn" value="Ok" alt="Lancer la recherche" onclick="ChangeContext()">
+        <input type="submit" name="submitbtn" id="submitbtn" value="Ok" alt="Lancer la recherche"> <!--onclick="ChangeContext()">-->
       </span>
     </fieldset>
     
@@ -2733,17 +2733,25 @@
 <!-- SiteCatalyst code version: H.14.
 Copyright 1997-2007 Omniture, Inc. More info available at
 http://www.omniture.com -->
-<script type="text/javascript">var s_account="fnaccomprod";</script>
-    <script type="text/javascript" src="jquery.js"></script>
+<!--    <script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="package.js"></script>
 	<script type="text/javascript" src="master.js"></script>	
 	<script type="text/javascript" src="jquery.autocomplete.js"></script>
 	<script type="text/javascript" src="jquery.bgiframe.min.js"></script>
 	<script type="text/javascript" src="jquery.ajaxQueue.js"></script>
 	<script type="text/javascript" src="inline.js"></script>
-	<script type="text/javascript" src="s_code-js-h.14.20090227.js"></script>
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+var s_account="fnaccomprod";
+$.getScript("package.js");
+$.getScript("master.js");
+$.getScript("jquery.autocomplete.js");
+$.getScript("jquery.bgiframe.min.js");
+$.getScript("jquery.ajaxQueue.js");
+$.getScript("inline.js");
+$.getScript("s_code-js-h.14.20090227.js");
 <!--global.js-->
-<script type="text/javascript"><!--
 /* You may give each page an identifying name, server, and channel on
 the next lines. */
 s.pageName="Home enfants"
