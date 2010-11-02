@@ -153,3 +153,150 @@ background-position  : -440px -0px;
 .sentosphere {
 	background-position  : -0px -0px;
 }
+
+
+/* sprite layout */
+.aide-suivi-commande {
+background-image: url(aide_suivi_commande.jpg);
+width:200px;
+height:58px;
+display:block;
+}
+
+.vignette_prp_enfant
+{
+background-image: url(vignette_prp_enfant.jpg);
+width:184px;
+height:84px;
+display:block;
+}
+
+.oui-oui-et-le-cadeau-surprise {
+background-image: url(oui-oui-et-le-cadeau-surprise.jpg);
+width:184px;
+height:100px;
+display:block;
+}
+
+.pomme-d-api-magazine {
+background-image: url(pomme-d-api-magazine.jpg);
+width:184px;
+height:100px;
+display:block;
+}
+
+.vtech-184 {
+background-image: url(vtech-184.jpg);
+width:184px;
+height:110px;
+display:block;
+}
+
+.playmobil-184 {
+background-image: url(playmobil-184.jpg);
+width:184px;
+height:110px;
+display:block;
+}
+
+.eveiletjeux4 {
+background-image: url(eveiletjeux4.png);
+width:154px;
+height:26px;
+display:block;
+background-repeat:no-repeat;
+}
+
+.a186x756_25082010{
+background-image: url(186x756_25082010.gif);
+width:186px;
+height:756px;
+display:block;
+background-repeat:no-repeat;
+}
+
+#univ_heros_titre{
+background-image: url(univ_heros_titre.png);
+width:424px;
+height:30px;
+display:block;
+background-repeat:no-repeat;
+}
+
+span.invisible{
+display:none;
+}
+
+#titres{
+background-image: url(vignette_enfants.png);
+width:180px;
+height:62px;
+display:block;
+background-repeat:no-repeat;
+}
+
+span.invisible{
+display:none;
+}
+
+.vignet {
+display:block;
+width:150px;
+height:80px;
+background-repeat:no-repeat;
+}
+
+#fnacbook{
+background-image: url(fnacbook.jpg);
+}
+
+#dvd{
+background-image: url(dvd.jpg);
+}
+
+#jeuxvideos{
+background-image: url(jeuxvideos.jpg);
+}
+
+#jouets{
+background-image: url(jouets.jpg);
+}
+
+#informatique5{
+background-image: url(informatique5.jpg);
+}
+
+#tv
+{
+background-image: url(tv.jpg);
+}
+
+#musique
+{
+background-image : url(musique.jpg);
+}
+
+#photo
+{
+background-image : url(photo.jpg);
+}
+
+#son
+{
+background-image : url(son.jpg);
+}
+
+#gadgetstendance
+{
+background-image : url(gadgetstendance.jpg);
+}
+
+#tiragephoto
+{
+background-image : url(tiragephoto.jpg);
+}
+
+#spectacle3
+{
+background-image : url(spectacle3.jpg);
+}
