@@ -1,6 +1,3 @@
-
-
-
 var IS_IE = document.all && window.print && !window.opera && /MSIE [56]/.test(navigator.userAgent);
 var IS_IE7 = document.all && window.print && !window.opera && /MSIE [78]/.test(navigator.userAgent);
 var IS_IE_ALL = document.all && window.print && !window.opera && /MSIE/.test(navigator.userAgent);
