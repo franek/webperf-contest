@@ -300,3 +300,29 @@ background-image : url(tiragephoto.jpg);
 {
 background-image : url(spectacle3.jpg);
 }
+
+.carroussel
+{
+background-image     : url(sprite-carroussel.png);
+	background-color     : transparent;
+	background-repeat    : no-repeat;
+display:block;
+ }
+
+ #bon-plan-jouet_09_2010_545_jpg {
+	height               : 147px;
+	width                : 545px;
+	background-position  : -0px -0px;
+ }
+
+ #coups-coeur-jouet_545_png {
+	height               : 147px;
+	width                : 545px;
+	background-position  : -545px -0px;
+ }
+
+ #lapins-cretins-10_2010_545_jpg {
+	height               : 147px;
+	width                : 545px;
+	background-position  : -1090px -0px;
+ }
