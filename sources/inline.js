@@ -106,93 +106,6 @@ function checkKey()
     }
 
 
-//--------------------------------------------------------------------------------------//
-			//                  Gestion de la navigation
-//--------------------------------------------------------------------------------------//
-			//Au passage à une autre page on sauvegarde l'état du player dans les cookies --%>
-			window.onbeforeunload = updatePlayerCookies;
-			//---------------------------------------------------//
-			//              Gestion des cookies
-			//----------------------------------------------------//
-			//Lecture des cookies --%>
-			function GetPlayerCookie (name) 
-			{
-	
-	            var arg=name+"=";
-	            var alen=arg.length;
-	            var clen=document.cookie.length;
-	            var i=0;
-	            while (i<clen) 
-	            {
-		            var j=i+alen;
-		            if (document.cookie.substring(i, j)==arg)
-                        return getPlayerCookieVal (j);
-                    i=document.cookie.indexOf(" ",i)+1;
-                    if (i==0) 
-                        break;
-               }
-	            return -1;
-            }
-            function getPlayerCookieVal(offset) 
-            {
-	            var endstr=document.cookie.indexOf (";", offset);
-	            if (endstr==-1)
-      		        endstr=document.cookie.length;
-	            return unescape(document.cookie.substring(offset, endstr));
-            }
-
-			//Mettre à jour les cookies --%>
-			function updatePlayerCookies()
-			{
-			   
-			    var Player =  GetPlayerCookie("Player");
-			    var PlayerPlaying = GetPlayerCookie("PlayerPlaying");
-			  //Player est ouvert  --%>
-			    
-			    if(StreamPlayer)
-			    {
-			        
-			         if(StreamPlayer.closed == false)
-			            SetPlayerCookie("Player",1,0);
-			         else
-			            SetPlayerCookie("Player",0,0);
-			       //Player en lecture:ce flag n"est pas utilisé pour l'instant mais ça peut étre utile :)  --%>
-			         if(onPlayFlag)
-			         SetPlayerCookie("PlayerPlaying",1,0);
-			        else
-			         SetPlayerCookie("PlayerPlaying",0,0);
-			  
-			    }
-			    else
-			    {
-			          
-			          if(Player<=0)
-			            SetPlayerCookie("Player",0,0);
-			          else
-			            SetPlayerCookie("Player",1,0);
-			        if(PlayerPlaying<=0)
-			            SetPlayerCookie("PlayerPlaying",0,0);
-			        else
-			            SetPlayerCookie("PlayerPlaying",1,0);
-			    }
-			     
-			}
-
-        function SetPlayerCookie (name,value,expires) 
-        {
-            
-            var domain= document.domain;
-            var path = '/';
-            var expDate = new Date();
-            expDate.setTime(expDate.getTime() + (expires * 24 * 3600 * 1000));
-//            document.cookie = name + "=" + escape(value) +
-            ((path) ? "; path=" + path : "") +
-            ((domain) ? "; domain=" + domain : "");
-    
-        }
-	//---------------------------------------------------------------------//		
-
-
 	function PopupLibre(theURL, Largeur, Hauteur) {
 		window.open(theURL,'diaporama','toolbar=auto,location=no,menubar=no,status=no,scrollbars=yes,resizable=yes,top=0,left=0,width='+Largeur+',height='+Hauteur);
 		return false;
@@ -334,3 +247,9 @@ $(document).ready(function(){
 								document.getElementById("Classique17_MP").innerHTML = data.MarketPlaceSummary;
 							});
 					});						
+
+$(document).ready(function(){
+    $("#submitbtn").click(function() {
+    ChangeContext();
+    });
+});
