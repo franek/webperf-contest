@@ -157,43 +157,49 @@ background-position  : -440px -0px;
 
 /* sprite layout */
 .aide-suivi-commande {
-background-image: url(aide_suivi_commande.jpg);
+background-image: url(sprite-layout.jpeg);
 width:200px;
 height:58px;
 display:block;
+background-position  : -0px -0px;
 }
 
 .vignette_prp_enfant
 {
-background-image: url(vignette_prp_enfant.jpg);
+background-image: url(sprite-layout.jpeg);
+background-position  : -2552px -0px;
 width:184px;
 height:84px;
 display:block;
 }
 
 .oui-oui-et-le-cadeau-surprise {
-background-image: url(oui-oui-et-le-cadeau-surprise.jpg);
+background-image: url(sprite-layout.jpeg);
 width:184px;
 height:100px;
 display:block;
+background-position  : -1250px -0px;
 }
 
 .pomme-d-api-magazine {
-background-image: url(pomme-d-api-magazine.jpg);
+background-image: url(sprite-layout.jpeg);
+background-position  : -1768px -0px;
 width:184px;
 height:100px;
 display:block;
 }
 
 .vtech-184 {
-background-image: url(vtech-184.jpg);
+background-image: url(sprite-layout.jpeg);
+background-position  : -2736px -0px;
 width:184px;
 height:110px;
 display:block;
 }
 
 .playmobil-184 {
-background-image: url(playmobil-184.jpg);
+background-image: url(sprite-layout.jpeg);
+background-position  : -1584px -0px;
 width:184px;
 height:110px;
 display:block;
@@ -244,61 +250,63 @@ display:block;
 width:150px;
 height:80px;
 background-repeat:no-repeat;
+background-image: url(sprite-layout.jpeg);
 }
 
 #fnacbook{
-background-image: url(fnacbook.jpg);
+background-position  : -350px -0px;
+
 }
 
 #dvd{
-background-image: url(dvd.jpg);
+background-position  : -200px -0px;
 }
 
 #jeuxvideos{
-background-image: url(jeuxvideos.jpg);
+background-position  : -800px -0px;
 }
 
 #jouets{
-background-image: url(jouets.jpg);
+background-position  : -950px -0px;
 }
 
 #informatique5{
-background-image: url(informatique5.jpg);
+background-position  : -650px -0px;
 }
 
 #tv
 {
-background-image: url(tv.jpg);
+background-position  : -2402px -0px;
 }
 
 #musique
 {
-background-image : url(musique.jpg);
+background-position  : -1100px -0px;
 }
 
 #photo
 {
-background-image : url(photo.jpg);
+background-position  : -1434px -0px;
 }
 
 #son
 {
-background-image : url(son.jpg);
+background-position  : -1952px -0px;
 }
 
 #gadgetstendance
 {
-background-image : url(gadgetstendance.jpg);
+background-position  : -500px -0px;
 }
 
 #tiragephoto
 {
-background-image : url(tiragephoto.jpg);
+background-position  : -2252px -0px;
 }
 
 #spectacle3
 {
-background-image : url(spectacle3.jpg);
+background-position  : -2102px -0px;
 }
 
 .carroussel
