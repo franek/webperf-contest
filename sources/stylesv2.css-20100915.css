@@ -209,8 +209,6 @@ html body .mrg_b_no{margin-bottom:0 !important}
     background:url(bg_footer.png) no-repeat bottom left;
     padding:5px 20px 10px 20px;
 }
-body.adherents #footer{ background-image:url(bg_footer_adh.png);}
-body.adherents #footer .inside{ background-image:url(bg_footer_adh.png);}
 #page, #page_2cols, #page_1col, #enfants {
     padding-bottom:10px;
 }
@@ -2050,6 +2048,13 @@ ul.topbuttons li{
 .block_bleu .cadre_produit .number{
     border-color:#47B5DA; /* bleu clair */
 }
+.block_bleu .cadre_produit .img{
+  background:#FFF; /* blanc */
+}
+
+
+
+
 .block_bleu .produit .number, .block_bleu .produit .number span{
     background-image:url(block_bleu_number_corners.png);
     color:#FFF; /* blanc */
@@ -2187,6 +2192,11 @@ ul.topbuttons li{
 .block_noir .cadre_produit .number {
     border-color:#3e3e3e;
 }
+
+.block_noir .cadre_produit .img {
+	background:#fff none repeat scroll 0% 50%;
+}
+
 .block_noir .cadre_produit .tl,
 .block_noir .cadre_produit .tr,
 .block_noir .cadre_produit .bl,
@@ -2244,61 +2254,8 @@ ul.topbuttons li{
 .block_noir .listeproduits .links, .block_noir .listeproduits .links a{
     color:#DE9C00; /* moutarde */
 }
-.block_noir .fluXml .blk_content{
-    background:url(flux-xml.png) no-repeat 9px 12px;
-}
-.block_noir .fluXml .blk_content p{
-    padding-left:42px;
-    margin-bottom:0;
-}
-.block_noir .faq .blk_content{ background:url(icoFaq_Mobile.png) no-repeat 9px 12px; }
-.block_noir .faq .blk_content p{
-    padding-left:40px;
-    margin-bottom:0;
-}
 
 
-/* ======= block_vertMic  =======*/
-/* clean up */
-
-/* ======= block_violet_mea (fnac gaming)=======*/
-.block_violet_mea  .blk_header, .block_violet_mea  .blk_header span, .block_violet_mea  .blk_header a{
-    background-color:#FFF;
-}
-.block_violet_mea .produit dt, .block_violet_mea .produit dt a{
-    font-weight:bold;
-    color:#000000;
-}
-.block_violet_mea .produit .details, .block_violet_mea .produit .details a{
-    color:#666;
-    font-weight:normal;
-}
-.block_violet_mea .blk_footer .links, .block_violet_mea .blk_footer .links a{
-    color:#666;
-}
-.block_violet_mea .sep{
-    border-bottom-color:#FFF;
-}
-
-/* ======= block_bleu_mp_mea (marketplace)=======*/
-.block_bleu_mp_mea .blk_header, .block_bleu_mp_mea .blk_header span, .block_bleu_mp_mea .blk_header a{
-    background-color:#FFF;
-    background-image:url(block_bleu_mp_mea_header.png);
-}
-.block_bleu_mp_mea .produit dt, .block_bleu_mp_mea .produit dt a{
-    font-weight:bold;
-    color:#000000;
-}
-.block_bleu_mp_mea .produit .details, .block_bleu_mp_mea .produit .details a{
-    color:#666;
-    font-weight:normal;
-}
-.block_bleu_mp_mea .blk_footer .links, .block_bleu_mp_mea .blk_footer .links a{
-    color:#666;
-}
-.block_bleu_mp_mea .sep{
-    border-bottom-color:#FFF;
-}
 
 /****************** blocks particuliers ******************/
 /* ======== bloc recherche ===== */
