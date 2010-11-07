@@ -6,15 +6,27 @@
 	<echo msg="- deploy ........ deploiement sur le serveur FTP" />
 </target>
 
-<target name="prepare">
-	<property name="ftp.host" value="ftp.alwaysdata.com" />
-	<property name="ftp.username" value="webperf-contest_4cc5b38b1c1b8" />
-	<property name="ftp.password" value="4cc5b38b1c1b8" />
+<target name="prepare-local">
+	<property name="domain.www" value="" />
+	<property name="domain.s1" value="" />
+	<property name="domain.s2" value="" />
+	<property name="domain.s3" value="" />
+    <phingcall target="prepare" />
+</target>
 
+<target name="prepare-distant">
+	<property name="domain.www" value="http://entries.webperf-contest.com/4cc5b38b1c1b8/" />
+	<property name="domain.s1" value="http://s1.webperf-contest.com/4cc5b38b1c1b8/" />
+	<property name="domain.s2" value="http://s2.webperf-contest.com/4cc5b38b1c1b8/" />
+	<property name="domain.s3" value="http://s3.webperf-contest.com/4cc5b38b1c1b8/" />
+    <phingcall target="prepare" />
+</target>
+
+<target name="prepare">
 	<phingcall target="nettoyage" />
+	<phingcall target="concat-css" />
 	<phingcall target="copy-image" />
 	<phingcall target="minify-js" />
-	<phingcall target="concat-css" />
 	<phingcall target="transform-html" />
 </target>
 
@@ -53,28 +65,33 @@
 <!-- compression des fichiers JS -->
 <target name="minify-js">
 	<jsMin targetDir="js/" failOnError="false">
-	  <fileset dir="sources/.">
-	    <include name="jquery.*.js"/>
-<!--	    <include name="jquery.js"/>-->
+	  <fileset dir="sources/">
+<!--	    <include name="jquery.js"/>
 	    <include name="package.js"/>
-	    <include name="master.js"/>
+	    <include name="master.js"/>-->
+	    <include name="jquery.autocomplete.js"/>
+            <include name="jquery.lazyload.js"/>
 	    <include name="inline.js"/>
 	    <include name="s_code-js-h.14.20090227.js"/>
   	</fileset>
 	</jsMin>
 
-	<append destFile="js/global.js">
+	<!--<append destFile="js/global-jquery.js">
 	  <filterchain>
 		<stripwhitespace />
 	  </filterchain>
 	  <fileset dir="js/">
-		<include name="jquery.*-min.js"/>
-<!--		<include name="jquery-min.js"/>-->
-	        <include name="package-min.js"/>
-	        <include name="master-min.js"/>
-	        <include name="inline-min.js"/>
-	        <include name="s_code-js-h.14.20090227-min.js"/>
+		<include name="jquery.autocomplete-min.js"/>
+		<include name="jquery.bgiframe.min-min.js"/>
+		<include name="jquery.ajaxQueue.js-min.js"/>
 	   </fileset>
+	</append>-->
+
+	<append destFile="js/global.js">
+	  <filterchain>
+		<stripwhitespace />
+	  </filterchain>
+	  <filelist dir="js/" files="jquery.autocomplete-min.js, jquery.lazyload-min.js, inline-min.js" />
 	</append>
 	
 </target>
@@ -102,49 +119,60 @@
 			<regexp pattern="\$.getScript\((.+)" replace="" ignoreCase="true"/>
 
 			<!-- supprime tous les lignes vides -->
-			<regexp pattern="^[\s]*$" replace=" " ignoreCase="true"/>
+			<regexp pattern="^[\s]*$" replace="" ignoreCase="true"/>
 
 			<!-- on remplace les fichiers JS par les versions minifiés -->
-			<regexp pattern="src=&quot;([\w.-]+).js&quot;" replace="src=&quot;js/\1-min.js&quot;" ignoreCase="true"/>
+			<regexp pattern="src=&quot;([\w.-]+).js&quot;" replace="src=&quot;${domain.s3}js/\1-min.js&quot;" ignoreCase="true"/>
 		</replaceregexp>
 			<replacetokens begintoken="&lt;!--" endtoken="--&gt;">
 			    <!--on ajoute l'appel au fichier css global-->
-			    <token key="global.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;global.css&quot;/&gt;" />
-              		    <!-- on ajoute l'appel au fichier JS global -->
-			    <token key="global.js" value="$.getScript(&quot;js/global.js&quot;);" />
-			</replacetokens>
+			    <token key="global.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;${domain.s2}global.css&quot;/&gt;" />
+                <token key="global-ie.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;${domain.s2}global-ie.css&quot;/&gt;" />
 
+                <!-- on ajoute l'appel au fichier JS global -->
+			    <token key="global.js" value="$.getScript(&quot;${domain.s3}js/global.js&quot;);" />
+
+                <!-- on remplace les domaines -->
+			    <token key="domain-www" value="${domain.www}" />
+			    <token key="domain-s1" value="${domain.s1}" />
+			    <token key="domain-s2" value="${domain.s2}" />
+			    <token key="domain-s3" value="${domain.s3}" />
+
+			</replacetokens>
 		</filterchain>
 	</copy>
 </target>
 
 <!-- concaténation des fichiers CSS -->
 <target name="concat-css">
+	<!-- mise en place de datauri -->
+<!--    <echo msg="intégration datauri" />
+    <exec command="java -jar cssembed-0.3.3.jar sources/stylesv2.css-20100915.css -o fnac.css" outputproperty="returncssembed" />
+	<exec command="java -jar cssembed-0.3.3.jar sources/stylesv2.css-20100915.css -o global-ie.css -mhtml -mhtmlroot http://s3.webperf-contest.com/4cc5b38b1c1b8/" outputproperty="returncssembed" />
+	<echo message="${returncssembed}" />-->
+        <exec command="cd /home/franek/dev/smartsprites-0.2.6;./smartsprites.sh --root-dir-path /home/franek/dev/webperf-contest/sources/" />
+
 	<append destFile="concat.css">
 	  <filterchain>
 		<stripwhitespace />
 	  </filterchain>
-	  <fileset dir="sources/">
-		<include name="stylesv2.css-20100915.css" />
-		<include name="jquery.autocomplete.css" />
-		<include name="stylesvnEnfants.css-20100915.css" />
-		<include name="cdc_2010.css" />
-		<include name="footer.css" />
-		<include name="logo.css" />
+	  <fileset dir=".">
+		<include name="sources/stylesv2.css-20100915-sprite.css" />
+		<include name="sources/logo.css" />
 	   </fileset>
 	</append>
+        
 	<echo msg="Compression avec Yuicompressor" />
-	<exec command="yui-compressor --type css --line-break 25 concat.css -o concat.css" />
-
-	<!-- mise en place de datauri -->
-	<echo msg="intégration datauri" />
-	<exec command="java -jar cssembed-0.3.3.jar concat.css -o global.css" outputproperty="returncssembed" />
-	<exec command="java -jar cssembed-0.3.3.jar concat.css -o global-ie.css --mhtml --mhtmlroot http://entries.webperf-contest.com/4cc5b38b1c1b8/" outputproperty="returncssembed" />
-	<echo message="${returncssembed}" />
+	<exec command="yui-compressor --type css --line-break 25 concat.css -o global.css" />
+    <!--<exec command="yui-compressor -type css -line-break 25 global-ie.css -o global-ie.css" />-->
 </target>
 
 <!-- déploiement des sources sur le serveur FTP -->
-<target name="deploy" depends="prepare" >
+<target name="deploy" depends="prepare-distant" >
+	<property name="ftp.host" value="ftp.alwaysdata.com" />
+	<property name="ftp.username" value="webperf-contest_4cc5b38b1c1b8" />
+	<property name="ftp.password" value="4cc5b38b1c1b8" />
+
 <ftpdeploy 
   host="${ftp.host}" 
   port="21" 
@@ -159,7 +187,7 @@
     <exclude name="images/**.gif"/>
     <exclude name="images/**.jpg"/>
     <exclude name="images/**.jpeg"/>
-    <exclude name=".git" />
+    <exclude name=".git/**" />
   </fileset>
 </ftpdeploy>
 

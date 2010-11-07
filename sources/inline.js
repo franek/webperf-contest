@@ -6,6 +6,8 @@ $(document).ready(function() {
 
     }
 
+    $("img").lazyload();
+
     $("#SCat").change( function() {
         $("#Fnac_Search").flushCache();
         var ComboVal = $("#SCat").val();

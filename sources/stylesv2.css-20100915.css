@@ -289,10 +289,7 @@ html body .mrg_b_no{margin-bottom:0 !important}
     text-transform:uppercase;
     font-weight:bold
 }
-body.adherents #subfooter a{
-    color:#666; /* gris tr�s fonc� */
-}
-#subfooter a:hover, body.adherents #subfooter a:hover{
+#subfooter a:hover{
     color:#000; /* noir */
 }
 #subfooter a.min{
