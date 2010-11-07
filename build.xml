@@ -163,7 +163,7 @@
 	</append>
         
 	<echo msg="Compression avec Yuicompressor" />
-	<exec command="yui-compressor --type css --line-break 25 concat.css -o global.css" />
+	<exec command="yui-compressor --type css concat.css -o global.css" />
     <!--<exec command="yui-compressor -type css -line-break 25 global-ie.css -o global-ie.css" />-->
 </target>
 
