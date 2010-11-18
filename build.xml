@@ -1,80 +1,81 @@
 <?xml version="1.0"?>
 <project name="webperf-contest" default="help" basedir=".">
-<target name="help">
-	<echo msg="Available targets :" />
-	<echo msg="- help ........... this message" />
-	<echo msg="- deploy ........ deploiement sur le serveur FTP" />
-</target>
+    <target name="help">
+        <echo msg="Available targets :" />
+        <echo msg="- help ........... this message" />
+        <echo msg="- deploy ........ deploiement sur le serveur FTP" />
+    </target>
 
-<target name="prepare-local">
-	<property name="domain.www" value="" />
-	<property name="domain.s1" value="" />
-	<property name="domain.s2" value="" />
-	<property name="domain.s3" value="" />
-    <phingcall target="prepare" />
-</target>
+    <target name="prepare-local">
+        <property name="domain.www" value="" />
+        <property name="domain.s1" value="" />
+        <property name="domain.s2" value="" />
+        <property name="domain.s3" value="" />
+        <phingcall target="prepare" />
+    </target>
 
-<target name="prepare-distant">
-	<property name="domain.www" value="http://entries.webperf-contest.com/4cc5b38b1c1b8/" />
-	<property name="domain.s1" value="http://s1.webperf-contest.com/4cc5b38b1c1b8/" />
-	<property name="domain.s2" value="http://s2.webperf-contest.com/4cc5b38b1c1b8/" />
-	<property name="domain.s3" value="http://s3.webperf-contest.com/4cc5b38b1c1b8/" />
-    <phingcall target="prepare" />
-</target>
+    <target name="prepare-distant">
+        <property name="domain.www" value="http://entries.webperf-contest.com/4cc5b38b1c1b8/" />
+        <property name="domain.s1" value="http://s1.webperf-contest.com/4cc5b38b1c1b8/" />
+        <property name="domain.s2" value="http://s2.webperf-contest.com/4cc5b38b1c1b8/" />
+        <property name="domain.s3" value="http://s3.webperf-contest.com/4cc5b38b1c1b8/" />
+        <phingcall target="prepare" />
+    </target>
 
-<target name="prepare">
-	<phingcall target="nettoyage" />
-	<phingcall target="concat-css" />
-	<phingcall target="copy-image" />
-	<phingcall target="minify-js" />
-	<phingcall target="transform-html" />
-</target>
+    <target name="prepare">
+        <phingcall target="nettoyage" />
+        <phingcall target="copy-image" />
+        <phingcall target="concat-css" />
+        <phingcall target="minify-js" />
+        <phingcall target="transform-html" />
+    </target>
 
 <!-- copie des images -->
-<target name="copy-image" >
-	<copy todir="." overwrite="true">
-		<fileset dir="sources/">
-		    <include name="**.gif" />
-		    <include name="**.png" />
-		    <include name="**.jpeg" />
-		    <include name="**.jpg" />
-		    <include name="**.ico" />
+    <target name="copy-image" >
+        <copy todir="." overwrite="true">
+            <fileset dir="sources/">
+                <include name="**.gif" />
+                <include name="**.png" />
+                <include name="**.jpeg" />
+                <include name="**.jpg" />
+                <include name="**.ico" />
 <!--		    <include name="iframe-footer/*.jpg" />
 		    <include name="iframe-footer/*.png" />
 		    <include name="iframe-footer/*.gif" />-->
-		</fileset>
-	</copy>
-</target>
+            </fileset>
+        </copy>
+    </target>
 
 <!-- nettoyage du projet avant démarrage -->
-<target name="nettoyage">
-	<delete>
-		<fileset dir=".">
-		    <include name="js/*.js" />
-		    <include name="*.html" />
-		    <include name="*.css" />
-		    <!--<include name="iframe-footer/*.*" />-->
-		    <include name="*.png" />
-		    <include name="*.jpeg" />
-		    <include name="*.jpg" />
-		    <include name="*.gif" />
-		 </fileset>
-	</delete>
-</target>
+    <target name="nettoyage">
+        <delete>
+            <fileset dir=".">
+                <include name="js/*.js" />
+                <include name="*.html" />
+                <include name="*.css" />
+		<include name="iframe-footer/*.*" />
+                <include name="*.png" />
+                <include name="*.jpeg" />
+                <include name="*.jpg" />
+                <include name="*.gif" />
+            </fileset>
+        </delete>
+    </target>
 
 <!-- compression des fichiers JS -->
-<target name="minify-js">
-	<jsMin targetDir="js/" failOnError="false">
-	  <fileset dir="sources/">
+    <target name="minify-js">
+        <jsMin targetDir="js/" failOnError="false">
+            <fileset dir="sources/">
 <!--	    <include name="jquery.js"/>
 	    <include name="package.js"/>
 	    <include name="master.js"/>-->
-	    <include name="jquery.autocomplete.js"/>
-            <include name="jquery.lazyload.js"/>
-	    <include name="inline.js"/>
-	    <include name="s_code-js-h.14.20090227.js"/>
-  	</fileset>
-	</jsMin>
+                <include name="jquery.autocomplete.js"/>
+                <include name="jquery.lazyload.js"/>
+                <include name="inline.js"/>
+                <include name="s_code-js-h.14.20090227.js"/>
+                <include name="jquery.carousel.js"/>
+            </fileset>
+        </jsMin>
 
 	<!--<append destFile="js/global-jquery.js">
 	  <filterchain>
@@ -87,110 +88,141 @@
 	   </fileset>
 	</append>-->
 
-	<append destFile="js/global.js">
-	  <filterchain>
-		<stripwhitespace />
-	  </filterchain>
-	  <filelist dir="js/" files="jquery.autocomplete-min.js, jquery.lazyload-min.js, inline-min.js" />
-	</append>
+        <append destFile="js/global.js">
+            <filterchain>
+                <stripwhitespace />
+            </filterchain>
+            <filelist dir="js/" files="jquery.autocomplete-min.js, jquery.lazyload-min.js, jquery.carousel-min.js, inline-min.js, s_code-js-h.14.20090227-min.js" />
+        </append>
 	
-</target>
+    </target>
 
 <!-- transformation du fichier HTML-->
-<target name="transform-html">
-	<copy todir="." overwrite="true">
-		<fileset dir="sources/">
-		    <include name="index.html" />
-		    <!--<include name="iframe-footer/engagements-pratique-entreprise.asp.html" />-->
-		</fileset>
-		<filterchain>
-		  <!-- encodage du projet en latin1 -->
-		  <!--ne fonctionne pas ?
-		  <tidyfilter encoding="latin1">
-		    <config name="indent" value="false" />
-		    <config name="wrap" value="false" />
-		    <config name="hide-comments" value="true" />
-		  </tidyfilter>-->
-		<replaceregexp>
-			<!-- on supprime l'appel aux autres feuilles de style -->
-			<regexp pattern="&lt;link rel=&quot;stylesheet(.+)" replace="" ignoreCase="true"/>
+    <target name="transform-html">
+        <copy todir="." overwrite="true">
+            <fileset dir="sources/">
+                <include name="index.html" />
+		<include name="iframe-footer/engagements-pratique-entreprise.asp.html" />
+            </fileset>
+            <filterchain>
+                <replaceregexp>
+                    <!-- on supprime l'appel aux autres feuilles de style -->
+                    <regexp pattern="&lt;link rel=&quot;stylesheet(.+)" replace="" ignoreCase="true"/>
 
-			<!-- on supprime l'appel aux fichiers JS -->
-			<regexp pattern="\$.getScript\((.+)" replace="" ignoreCase="true"/>
+                    <!-- on supprime l'appel aux fichiers JS -->
+                    <regexp pattern="\$.getScript\((.+)" replace="" ignoreCase="true"/>
 
-			<!-- supprime tous les lignes vides -->
-			<regexp pattern="^[\s]*$" replace="" ignoreCase="true"/>
+                    <!-- supprime tous les lignes vides -->
+                    <regexp pattern="[ ]{3,}" replace="" ignoreCase="true" />
 
-			<!-- on remplace les fichiers JS par les versions minifiés -->
-			<regexp pattern="src=&quot;([\w.-]+).js&quot;" replace="src=&quot;${domain.s3}js/\1-min.js&quot;" ignoreCase="true"/>
-		</replaceregexp>
-			<replacetokens begintoken="&lt;!--" endtoken="--&gt;">
+                    <!-- on remplace les fichiers JS par les versions minifiés -->
+                    <regexp pattern="src=&quot;([\w.-]+).js&quot;" replace="src=&quot;${domain.s3}js/\1-min.js&quot;" ignoreCase="true"/>
+                </replaceregexp>
+                <replacetokens begintoken="&lt;!--" endtoken="--&gt;">
 			    <!--on ajoute l'appel au fichier css global-->
-			    <token key="global.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;${domain.s2}global.css&quot;/&gt;" />
-                <token key="global-ie.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;${domain.s2}global-ie.css&quot;/&gt;" />
+                    <token key="global.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;${domain.s2}global.css&quot;/&gt;" />
+                    <token key="global-ie.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;${domain.s2}global-ie.css&quot;/&gt;" />
 
                 <!-- on ajoute l'appel au fichier JS global -->
-			    <token key="global.js" value="$.getScript(&quot;${domain.s3}js/global.js&quot;);" />
+                    <token key="global.js" value="$.getScript(&quot;${domain.s3}js/global.js&quot;, function(){" />
 
                 <!-- on remplace les domaines -->
-			    <token key="domain-www" value="${domain.www}" />
-			    <token key="domain-s1" value="${domain.s1}" />
-			    <token key="domain-s2" value="${domain.s2}" />
-			    <token key="domain-s3" value="${domain.s3}" />
+                    <token key="domain-www" value="${domain.www}" />
+                    <token key="domain-s1" value="${domain.s1}" />
+                    <token key="domain-s2" value="${domain.s2}" />
+                    <token key="domain-s3" value="${domain.s3}" />
+                </replacetokens>
+                <striplinecomments>
+                    <comment value="#" />
+                    <comment value="&lt;!--" />
+                    <comment value="//" />
+                    <comment value="/*" />
+                </striplinecomments>
+                <stripwhitespace />
+                <!--<striplinebreaks />-->
+                <replaceregexp>
+                    <!-- on supprime l'appel aux autres feuilles de style -->
+                    <regexp pattern="&lt;!--(.+)--&gt;" replace="" ignoreCase="true"/>
+                </replaceregexp>
+                </filterchain>
+        </copy>
 
-			</replacetokens>
-		</filterchain>
-	</copy>
-</target>
+        <copy todir="." overwrite="true">
+            <fileset dir="sources">
+                <include name="iframe-footer/engagements-pratique-entreprise.asp.html" />
+                <!--<include name="index.html" />-->
+            </fileset>
+
+
+                        <filterchain>
+                <tidyfilter encoding="latin1">
+                    <config name="indent" value="false" />
+                    <config name="wrap" value="false" />
+                    <config name="hide-comments" value="false" />
+                    <config name="preserve-entities" value="true" />
+                    <config name="tidy-mark" value="no" />
+                    <config name="output-encoding" value="latin1" />
+                    <config name="input-encoding" value="latin1" />
+                    <config name="language" value="fr" />
+                    <config name="char-encoding" value="latin1" />
+                    <config name="ascii-chars" value="yes" />
+                    <config name="error-file" value="/tmp/tidy.log" />
+                </tidyfilter>
+            </filterchain>
+            </copy>
+    </target>
 
 <!-- concaténation des fichiers CSS -->
-<target name="concat-css">
+    <target name="concat-css">
 	<!-- mise en place de datauri -->
-<!--    <echo msg="intégration datauri" />
-    <exec command="java -jar cssembed-0.3.3.jar sources/stylesv2.css-20100915.css -o fnac.css" outputproperty="returncssembed" />
-	<exec command="java -jar cssembed-0.3.3.jar sources/stylesv2.css-20100915.css -o global-ie.css -mhtml -mhtmlroot http://s3.webperf-contest.com/4cc5b38b1c1b8/" outputproperty="returncssembed" />
-	<echo message="${returncssembed}" />-->
-        <exec command="cd /home/franek/dev/smartsprites-0.2.6;./smartsprites.sh --root-dir-path /home/franek/dev/webperf-contest/sources/" />
+        <!--<exec command="cd /home/franek/dev/smartsprites-0.2.6;./smartsprites.sh -root-dir-path /home/franek/dev/webperf-contest/sources/" />-->
 
-	<append destFile="concat.css">
-	  <filterchain>
-		<stripwhitespace />
-	  </filterchain>
-	  <fileset dir=".">
-		<include name="sources/stylesv2.css-20100915-sprite.css" />
-		<include name="sources/logo.css" />
-	   </fileset>
-	</append>
+        <append destFile="concat.css">
+            <filterchain>
+                <stripwhitespace />
+            </filterchain>
+            <fileset dir=".">
+                <include name="sources/stylesv2.css-20100915.css" />
+                <include name="sources/logo.css" />
+            </fileset>
+        </append>
         
-	<echo msg="Compression avec Yuicompressor" />
-	<exec command="yui-compressor --type css concat.css -o global.css" />
+        <echo msg="Compression avec Yuicompressor" />
+        <exec command="yui-compressor --type css concat.css -o global.css" />
     <!--<exec command="yui-compressor -type css -line-break 25 global-ie.css -o global-ie.css" />-->
-</target>
+
+    <!--<echo msg="intégration datauri" />
+    <exec command="java -jar cssembed-0.3.3.jar temp.css -o global.css" outputproperty="returncssembed" />
+	<exec command="java -jar cssembed-0.3.3.jar temp.css -o global-ie.css -mhtml -mhtmlroot ${domain.s3}" outputproperty="returncssembed" />
+	<echo message="${returncssembed}" />
+-->
+
+    </target>
 
 <!-- déploiement des sources sur le serveur FTP -->
-<target name="deploy" depends="prepare-distant" >
-	<property name="ftp.host" value="ftp.alwaysdata.com" />
-	<property name="ftp.username" value="webperf-contest_4cc5b38b1c1b8" />
-	<property name="ftp.password" value="4cc5b38b1c1b8" />
+    <target name="deploy" depends="prepare-distant" >
+        <property name="ftp.host" value="ftp.alwaysdata.com" />
+        <property name="ftp.username" value="webperf-contest_4cc5b38b1c1b8" />
+        <property name="ftp.password" value="4cc5b38b1c1b8" />
 
-<ftpdeploy 
+        <ftpdeploy
   host="${ftp.host}" 
   port="21" 
   username="${ftp.username}" 
   password="${ftp.password}"
   clearfirst="true" >
-  <fileset dir=".">
-    <include name="**"/>
-    <exclude name="phing"/>
-    <exclude name="build.xml"/>
-    <exclude name="images/**.png"/>
-    <exclude name="images/**.gif"/>
-    <exclude name="images/**.jpg"/>
-    <exclude name="images/**.jpeg"/>
-    <exclude name=".git/**" />
-  </fileset>
-</ftpdeploy>
+            <fileset dir=".">
+                <include name="**"/>
+                <exclude name="phing"/>
+                <exclude name="build.xml"/>
+                <exclude name="images/**.png"/>
+                <exclude name="images/**.gif"/>
+                <exclude name="images/**.jpg"/>
+                <exclude name="images/**.jpeg"/>
+                <exclude name=".git/**" />
+            </fileset>
+        </ftpdeploy>
 
-</target>
+    </target>
 
 </project>
