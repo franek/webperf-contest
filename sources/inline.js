@@ -51,7 +51,7 @@ $(document).ready(function() {
     cache.quickSearchForm = $('#QuickSearchForm');
     cache.carousel = $("#carroussel");
 
-    /*$(cache.carousel).carousel(
+    $(cache.carousel).carousel(
         { direction: "horizontal",
           loop: true,
           pagination : true,
@@ -59,7 +59,7 @@ $(document).ready(function() {
           autoSlideInterval: 1000,
           paginationPosition : "outside"
         }
-    );*/
+    );
 
     // gestion des images
     $(cache.lazy).lazyload();
