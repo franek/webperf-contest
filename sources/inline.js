@@ -1,3 +1,34 @@
+    // gestion du bandeau tournant
+    var nbBanner = 3,
+        idSuivant,
+        puce,
+        monTimer;
+    function demarreRotation() {
+        afficheBanner("visu_banner_0");
+    }
+
+    function afficheBanner(idSolde) {
+        var divImgCible;
+        puce = parseInt(idSolde.substring(12));
+        idSuivant = puce + 1;
+        if(idSuivant >= nbBanner) {
+            idSuivant = 0;
+        }
+        var spanPuceCible = document.getElementById("puce_"+puce);
+        for (var i=0;i<nbBanner;i++) {
+            var allDivs = document.getElementById("visu_banner_"+i);
+            allDivs.style.display = "none";
+            divImgCible = document.getElementById(idSolde);
+            divImgCible.style.display = "block";
+            var allPuces = document.getElementById("puce_"+i);
+            allPuces.className = allPuces.className.replace(/active/,"");
+            if(!/active/.test(spanPuceCible.className))
+                spanPuceCible.className += " active";
+        }
+        var mafunction = "afficheBanner('visu_banner_"+idSuivant+"')";
+        monTimer = setTimeout(mafunction,3500);  //2000
+    }
+
 var FNAC = function() {
 
     function init()
@@ -49,17 +80,6 @@ $(document).ready(function() {
     cache.lazy = $("img.lazy");
     cache.scat = $('#SCat');
     cache.quickSearchForm = $('#QuickSearchForm');
-    cache.carousel = $("#carroussel");
-
-    $(cache.carousel).carousel(
-        { direction: "horizontal",
-          loop: true,
-          pagination : true,
-          autoSlide: true,
-          autoSlideInterval: 1000,
-          paginationPosition : "outside"
-        }
-    );
 
     // gestion des images
     $(cache.lazy).lazyload();
@@ -75,7 +95,6 @@ $(document).ready(function() {
     });
 
     $(cache.search).autocomplete("http://autocompletion.fnac.com/search-autocomplete/autocomplete?method=GetCommonSuggest", {
-
         width: 260,
         selectFirst: false,
         max: 10,
@@ -140,74 +159,6 @@ $(document).ready(function() {
         // et on retire la classe .hover a son lien
         $(this).siblings("a.ongLink").removeClass("hover");
     });
+
+    demarreRotation();
 });
-
-//function switcherBandeau(id){
-//    m = document.getElementById("bandeauTournantImages");
-//    l = m.getElementsByTagName("img");
-//    for (var i = 0; i < l.length; i++)
-//    {
-//        l[i].style.display = "none";
-//        if (l[i].id==id)
-//        {
-//            l[i].style.display = "block";
-//        }
-//    }
-//}
-//
-//
-//var nbBanner = 3;
-//var idSuivant;
-//var puce;
-//var monTimer
-//function demarreRotation() {
-//    afficheBanner("visu_banner_0","rotationOk");
-//}
-//
-//function afficheBanner(idSolde,rotationSolde) {
-//    var divImgCible;
-//    puce = parseInt(idSolde.substring(12));
-//    idSuivant = puce + 1;
-//    if(idSuivant >= nbBanner) idSuivant = 0;
-//    var spanPuceCible = document.getElementById("puce_"+puce);
-//    for (var i=0;i<nbBanner;i++) {
-//        var allDivs = document.getElementById("visu_banner_"+i);
-//        allDivs.style.display = "none";
-//        divImgCible = document.getElementById(idSolde);
-//        divImgCible.style.display = "block";
-//        var allPuces = document.getElementById("puce_"+i);
-//        allPuces.className = allPuces.className.replace(/active/,"");
-//        if(!/active/.test(spanPuceCible.className))
-//            spanPuceCible.className += " active";
-//    }
-//    if (rotationSolde == "rotationOk") {
-//        monTimer = setTimeout("afficheBanner('visu_banner_'+idSuivant,'rotationOk')",3500); // 2000
-//    }
-//    else {
-//        clearTimeout(monTimer);
-//        monTimer = setTimeout("afficheBanner('visu_banner_'+idSuivant,'rotationOk')",10000); //10000
-//    }
-//}
-
-// Bidouille pour lancer au chargement et en même temps
-// éviter les collisions avec le onload qui traine dans le body
-//if (typeof window.addEventListener != 'undefined') {	//.. gecko, safari, konqueror and standard
-//    window.addEventListener('load', demarreRotation, false);
-//}
-//else if (typeof document.addEventListener != 'undefined') {	//.. opera 7
-//    document.addEventListener('load', demarreRotation, false);
-//}
-//else if (typeof window.attachEvent != 'undefined') {	//.. win/ie
-//    window.attachEvent('onload', demarreRotation);
-//}
-//$(document).ready(function(){
-//    for(var x=0;x<nbBanner;x++){
-//        $("#puce_"+x).click(function(e){
-//            e.preventDefault();
-//            var index = $(e.target).attr("id");
-//            index = index.substring(5);
-//            clearTimeout(monTimer);
-//            afficheBanner('visu_banner_'+index,'rotationOk');
-//        });
-//    }
-//});

@@ -7,10 +7,10 @@
     </target>
 
     <target name="prepare-local">
-        <property name="domain.www" value="" />
-        <property name="domain.s1" value="" />
-        <property name="domain.s2" value="" />
-        <property name="domain.s3" value="" />
+        <property name="domain.www" value="http://entries.webperf-contest.local/" />
+        <property name="domain.s1" value="http://s1.webperf-contest.local/" />
+        <property name="domain.s2" value="http://s2.webperf-contest.local/" />
+        <property name="domain.s3" value="http://s3.webperf-contest.local/" />
         <phingcall target="prepare" />
     </target>
 
@@ -66,33 +66,18 @@
     <target name="minify-js">
         <jsMin targetDir="js/" failOnError="false">
             <fileset dir="sources/">
-<!--	    <include name="jquery.js"/>
-	    <include name="package.js"/>
-	    <include name="master.js"/>-->
                 <include name="jquery.autocomplete.js"/>
                 <include name="jquery.lazyload.js"/>
                 <include name="inline.js"/>
                 <include name="s_code-js-h.14.20090227.js"/>
-                <include name="jquery.carousel.js"/>
             </fileset>
         </jsMin>
-
-	<!--<append destFile="js/global-jquery.js">
-	  <filterchain>
-		<stripwhitespace />
-	  </filterchain>
-	  <fileset dir="js/">
-		<include name="jquery.autocomplete-min.js"/>
-		<include name="jquery.bgiframe.min-min.js"/>
-		<include name="jquery.ajaxQueue.js-min.js"/>
-	   </fileset>
-	</append>-->
 
         <append destFile="js/global.js">
             <filterchain>
                 <stripwhitespace />
             </filterchain>
-            <filelist dir="js/" files="jquery.autocomplete-min.js, jquery.lazyload-min.js, jquery.carousel-min.js, inline-min.js, s_code-js-h.14.20090227-min.js" />
+            <filelist dir="js/" files="jquery.autocomplete-min.js, jquery.lazyload-min.js, inline-min.js, s_code-js-h.14.20090227-min.js" />
         </append>
 	
     </target>
@@ -119,14 +104,14 @@
                     <regexp pattern="src=&quot;([\w.-]+).js&quot;" replace="src=&quot;${domain.s3}js/\1-min.js&quot;" ignoreCase="true"/>
                 </replaceregexp>
                 <replacetokens begintoken="&lt;!--" endtoken="--&gt;">
-			    <!--on ajoute l'appel au fichier css global-->
+                    <!--on ajoute l'appel au fichier css global-->
                     <token key="global.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;${domain.s2}global.css&quot;/&gt;" />
                     <token key="global-ie.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;${domain.s2}global-ie.css&quot;/&gt;" />
 
-                <!-- on ajoute l'appel au fichier JS global -->
+                    <!-- on ajoute l'appel au fichier JS global -->
                     <token key="global.js" value="$.getScript(&quot;${domain.s3}js/global.js&quot;, function(){" />
 
-                <!-- on remplace les domaines -->
+                    <!-- on remplace les domaines -->
                     <token key="domain-www" value="${domain.www}" />
                     <token key="domain-s1" value="${domain.s1}" />
                     <token key="domain-s2" value="${domain.s2}" />
@@ -146,30 +131,6 @@
                 </replaceregexp>
                 </filterchain>
         </copy>
-
-        <copy todir="." overwrite="true">
-            <fileset dir="sources">
-                <include name="iframe-footer/engagements-pratique-entreprise.asp.html" />
-                <!--<include name="index.html" />-->
-            </fileset>
-
-
-                        <filterchain>
-                <tidyfilter encoding="latin1">
-                    <config name="indent" value="false" />
-                    <config name="wrap" value="false" />
-                    <config name="hide-comments" value="false" />
-                    <config name="preserve-entities" value="true" />
-                    <config name="tidy-mark" value="no" />
-                    <config name="output-encoding" value="latin1" />
-                    <config name="input-encoding" value="latin1" />
-                    <config name="language" value="fr" />
-                    <config name="char-encoding" value="latin1" />
-                    <config name="ascii-chars" value="yes" />
-                    <config name="error-file" value="/tmp/tidy.log" />
-                </tidyfilter>
-            </filterchain>
-            </copy>
     </target>
 
 <!-- concaténation des fichiers CSS -->
