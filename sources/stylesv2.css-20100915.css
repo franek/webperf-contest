@@ -1604,15 +1604,6 @@ ul.topbuttons li{
                    right:0;
 }
 
-/* fix corners */
-.IS_IE .tr, .IS_IE .br{
-    _right:expression(cssRight(this)); /* corrige le positionnement absolu sous IE */
-}
-/* IS_IE est l� pour que IE7 n'utilise pas cette propri�t� */
-.IS_IE .bl, .IS_IE .br{
-    _bottom:expression(cssBottom(this,true)); /* corrige le positionnement absolu sous IE */
-}
-
 /* fond/classes generiques */
 /* flat :aucune bordure sur le bloc */
 .flat{
@@ -1642,14 +1633,6 @@ ul.topbuttons li{
 .block .flat .br{
     bottom:0;
     right:0;
-}
-/* fix corners */
-.IS_IE .flat .tr, .IS_IE .flat .br{
-    _right:expression(cssRight(this)); /* corrige le positionnement absolu sous IE */
-}
-/* IS_IE est l� pour que IE7 n'utilise pas cette propri�t� */
-.IS_IE .flat .bl, .IS_IE .flat .br{
-    _bottom:expression(cssBottom(this,true)); /* corrige le positionnement absolu sous IE */
 }
 
 .filled .flat .tl, .filled .flat .tr, .filled .flat .bl, .filled .flat .br{ /* coin sur fond parent gris */
@@ -1783,13 +1766,7 @@ ul.topbuttons li{
     bottom:0;
     left:0;
 }
-.IS_IE .cadre_produit .tr, .IS_IE .cadre_produit .br{
-    _right:expression(cssRight(this)) /* corrige le positionnement absolu sous IE */
-}
-/* IS_IE est l� pour que IE7 n'utilise pas cette propri�t� */
-.IS_IE .cadre_produit .bl, .IS_IE .cadre_produit .br{
-    _bottom:expression(cssBottom(this,true)) /* corrige le positionnement absolu sous IE */
-}
+
 /*2009-04-27*/
 .cadre_produit .number span{
     float:left;
@@ -1830,11 +1807,6 @@ ul.topbuttons li{
 
 
 /* ======= block_rouge =======*/
-.block_rouge .blk_header, .block_rouge .blk_header span, .block_rouge .blk_header a{
-    background-color:#DD0000; /* rouge */
-    background-image:url(block_rouge_header.png);
-    color:#FFF; /* blanc */
-}
 .block_rouge_mea .blk_header, .block_rouge_mea .blk_header span, .block_rouge_mea .blk_header a{
     background-color:#FFF; /* blanc */
     background-image:url(block_rouge_mea_header.png);
@@ -1848,19 +1820,6 @@ ul.topbuttons li{
     background:#FCE5E5; /* rouge clair */
 }
 
-.block_rouge .blk_inside .tr, .block_rouge .blk_inside .tl, .block_rouge .blk_inside .br, .block_rouge .blk_inside .bl {
-    background-image:url(block_rouge_corner_trans.png);
-}
-
-.block_rouge .blk_inside_red_brd_grey .tl, .block_rouge .blk_inside_red_brd_grey .tr, .block_rouge .blk_inside_red_brd_grey .bl, .block_rouge .blk_inside_red_brd_grey .br{
-    background-image:url(block_rouge_corner.png);
-}
-
-/* produit */
-.block_rouge .produit .number, .block_rouge .produit .number span{
-    background-image:url(block_rouge_number_corners.png);
-    color:#FFF; /* blanc */
-}
 .block_rouge h4, .block_rouge .filled .produit dt, .block_rouge .filled .produit dt a{
     color:#DD0000; /* rouge */
     font-weight:bold;
@@ -1932,22 +1891,6 @@ ul.topbuttons li{
     background:#fff none repeat scroll 0% 50%;
 }
 
-.block_rouge .cadre_produit .tl,
-.block_rouge .cadre_produit .tr,
-.block_rouge .cadre_produit .bl,
-.block_rouge .cadre_produit .br {
-    background-image:url(block_cadre_prod_rouge1_corner.png);
-}
-
-/******* block_jaune *******/
-.block_jaune .blk_header, .block_jaune .blk_header span, .block_jaune .blk_header a{
-    background-color:#F9D500; /* jaune */
-    background-image:url(block_jaune_header_flat.png);
-    color:#000; /* noir */
-}
-.block_jaune_blanc .blk_header, .block_jaune_blanc .blk_header span, .block_jaune_blanc .blk_header a{
-    background-image:url(block_jaune_blanc_header.png);
-}
 .block_jaune_mea .blk_header, .block_jaune_mea .blk_header span, .block_jaune_mea .blk_header a{
     background-color:#FFF; /* blanc */
     background-image:url(block_jaune_mea_header.png);
@@ -2018,12 +1961,7 @@ ul.topbuttons li{
 .block_jaune .cadre_produit .img {
     background:#fff none repeat scroll 0% 50%;
 }
-.block_jaune .cadre_produit .tl,
-.block_jaune .cadre_produit .tr,
-.block_jaune .cadre_produit .bl,
-.block_jaune .cadre_produit .br {
-    background-image:url(block_cadre_prod_jaune_corner.png);
-}
+
 /* ======= block_bleu =======  */
 .block_bleu .blk_header, .block_bleu .blk_header span, .block_bleu .blk_header a{
     background-color:#0099CC; /* bleu clair */
@@ -2052,10 +1990,6 @@ ul.topbuttons li{
 
 
 
-.block_bleu .produit .number, .block_bleu .produit .number span{
-    background-image:url(block_bleu_number_corners.png);
-    color:#FFF; /* blanc */
-}
 .block_bleu .cadre_produit .number, .block_bleu .cadre_produit .number span{
     background-image:none;
     background:#43B4D9;
@@ -2082,12 +2016,6 @@ ul.topbuttons li{
 }
 .block_bleu_mea .filled .sep{
     border-bottom-color:#FFF; /* blanc */
-}
-/* ======= block_orange ======= */
-.block_orange .blk_header, .block_orange .blk_header span, .block_orange .blk_header a{
-    background-color:#FE7403; /* orange */
-    background-image:url(block_orange_header.png);
-    color:#FFF; /* blanc */
 }
 .block_orange_mea .blk_header, .block_orange_mea .blk_header span, .block_orange_mea .blk_header a{
     background-color:#FFF; /* blanc */
@@ -2141,12 +2069,6 @@ ul.topbuttons li{
 .block_orange .cadre_produit .img {
     background:#fff none repeat scroll 0% 50%;
 }
-.block_orange .cadre_produit .tl,
-.block_orange .cadre_produit .tr,
-.block_orange .cadre_produit .bl,
-.block_orange .cadre_produit .br {
-    background-image:url(block_cadre_prod_orange_corner.png);
-}
 /* ======= block_noir ======= */
 .block_noir .blk_header, .block_noir .blk_header span, .block_noir .blk_header a{
     background-color:#000; /* noir */
@@ -2160,16 +2082,6 @@ ul.topbuttons li{
 #col_gauche .block_top .blk_header, #col_gauche .block_top .blk_header span, #col_gauche .block_top .blk_header a, #col_droite .block_top .blk_header, #col_droite .block_top .blk_header span, #col_droite .block_top .blk_header a{
     color:#DE9C00; /* moutarde */
     background-image:url(block_noir_header_on_col.png);
-}
-#col_gauche .block_noir .flat .blk_header, #col_gauche .block_noir .flat .blk_header span, #col_gauche .block_noir .flat .blk_header a, #col_droite .block_noir .flat .blk_header, #col_droite .block_noir .flat .blk_header span, #col_droite .block_noir .flat .blk_header a{
-    color:#DE9C00; /* moutarde */
-    background-image:url(block_noir_flat_header_on_col.png);
-}
-.block_noir .tl, .block_noir .tr, .block_noir .bl, .block_noir .br{
-    background-image:url(block_gris_corners.png);
-}
-.block_noir .filled_black .tl, .block_noir .filled_black .tr, .block_noir .filled_black .bl, .block_noir .filled_black .br{
-    background-image:url(block_noir_corners.png);
 }
 .block_noir .blk_inside{
     border:1px solid #CCC; /* gris  */
@@ -2275,10 +2187,6 @@ ul.topbuttons li{
     text-indent:-5000px;
     background:url(rechercher.png) no-repeat left top;
 }
-.block_search_new label{
-    background:url(label_rechercher.png) no-repeat left top!important;
-    height:23px;
-}
 .block_search .text, #HEADER .block_search .text {
     width: 16.5em;
     font-size:1.1em;
@@ -2328,16 +2236,6 @@ ul.topbuttons li{
     height: 21px;
 }
 
-.block_search .submitnew {
-    float:left;
-    position:relative;
-    margin:0;
-    border:none;
-    background: url(Qsearch_OK.png) no-repeat left top;
-    height:20px;
-    width:30px;
-    margin:2px 0 0;
-}
 .block_search .submitnew input{
     position:absolute;
     overflow:hidden;
@@ -2443,9 +2341,6 @@ div.event{
 #waitingMsg img {float:left;}
 #waitingMsg p {zoom:1; overflow:hidden;text-align:center; margin:0; margin-left:10px; padding:0; line-height:1.2em;}
 #shadowLayer {background:black; -moz-opacity:0.2; filter:alpha(opacity=20); opacity:0.2; position:absolute; width:100%; top:0; left:0; z-index:999}
-
-/* Popin ajout au panier */
-.basket_popin_big{width:261px;height:187px;text-align:center;background:transparent url(bg_pop_ajoutpanier_bleu.png) no-repeat center bottom;color:#000;}
 
 /*
   *S&L Marketplace
