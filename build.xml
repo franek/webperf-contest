@@ -16,9 +16,9 @@
 
     <target name="prepare-distant">
         <property name="domain.www" value="http://entries.webperf-contest.com/4cc5b38b1c1b8/" />
-        <property name="domain.s1" value="http://s1.webperf-contest.com/4cc5b38b1c1b8/" />
-        <property name="domain.s2" value="http://s2.webperf-contest.com/4cc5b38b1c1b8/" />
-        <property name="domain.s3" value="http://s3.webperf-contest.com/4cc5b38b1c1b8/" />
+        <property name="domain.s1" value="1.webperf-contest.appspot.com/" />
+        <property name="domain.s2" value="2.webperf-contest.appspot.com/" />
+        <property name="domain.s3" value="3.webperf-contest.appspot.com/" />
         <phingcall target="prepare" />
     </target>
 
@@ -34,10 +34,10 @@
     <target name="copy-image" >
         <copy todir="." overwrite="true">
             <fileset dir="sources/">
-                <include name="**.gif" />
-                <include name="**.png" />
-                <include name="**.jpeg" />
-                <include name="**.jpg" />
+                <include name="img/*.gif" />
+                <include name="img/*.png" />
+                <include name="img/*.jpeg" />
+                <include name="img/*.jpg" />
                 <include name="**.ico" />
 <!--		    <include name="iframe-footer/*.jpg" />
 		    <include name="iframe-footer/*.png" />
@@ -51,13 +51,11 @@
         <delete>
             <fileset dir=".">
                 <include name="js/*.js" />
+                <include name="img/*" />
+                <include name="css/*" />
                 <include name="*.html" />
-                <include name="*.css" />
 		<include name="iframe-footer/*.*" />
-                <include name="*.png" />
-                <include name="*.jpeg" />
-                <include name="*.jpg" />
-                <include name="*.gif" />
+                <include name="*.ico" />
             </fileset>
         </delete>
     </target>
@@ -105,8 +103,8 @@
                 </replaceregexp>
                 <replacetokens begintoken="&lt;!--" endtoken="--&gt;">
                     <!--on ajoute l'appel au fichier css global-->
-                    <token key="global.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;${domain.s2}global.css&quot;/&gt;" />
-                    <token key="global-ie.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;${domain.s2}global-ie.css&quot;/&gt;" />
+                    <token key="global.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;${domain.s2}css/global.css&quot;/&gt;" />
+                    <token key="global-ie.css" value="&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;all&quot; href=&quot;${domain.s2}css/global-ie.css&quot;/&gt;" />
 
                     <!-- on ajoute l'appel au fichier JS global -->
                     <token key="global.js" value="$.getScript(&quot;${domain.s3}js/global.js&quot;, function(){" />
@@ -138,7 +136,7 @@
 	<!-- mise en place de datauri -->
         <!--<exec command="cd /home/franek/dev/smartsprites-0.2.6;./smartsprites.sh -root-dir-path /home/franek/dev/webperf-contest/sources/" />-->
 
-        <append destFile="concat.css">
+        <append destFile="css/concat.css">
             <filterchain>
                 <stripwhitespace />
             </filterchain>
@@ -149,7 +147,7 @@
         </append>
         
         <echo msg="Compression avec Yuicompressor" />
-        <exec command="yui-compressor --type css concat.css -o global.css" />
+        <exec command="yui-compressor --type css css/concat.css -o css/global.css" />
     <!--<exec command="yui-compressor -type css -line-break 25 global-ie.css -o global-ie.css" />-->
 
     <!--<echo msg="intégration datauri" />
