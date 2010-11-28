@@ -2,12 +2,15 @@ application: webperf-contest
 version: 1
 runtime: python
 api_version: 1
-default_expiration: "7d"
+default_expiration: "100d"
 handlers:
 - url: /js
   static_dir: js
+  expiration: 100d
 - url: /img
   static_dir: img
+  expiration: 100d
 - url: /css
   static_dir: css
+  expiration: 100d
 

@@ -1,5 +1,3 @@
-/** sprite: sprite-global; sprite-image: url(../img/'sprite-global.png'); sprite-layout: vertical */
-
 /* ajout barbare - � ranger plus tard */
 .gras{
     font-weight:bold!important;
@@ -41,7 +39,7 @@ body{
     _font-size:0.75em;
     zoom:1;
     color:#666; /* gris */
-    background:#FFF url(../img/body-background-standard.png) repeat-x center top;
+    background:#FFF url(http://6.webperf-contest.appspot.com/img/body-background-standard.png) repeat-x center top;
 }
 a{
     text-decoration:none;
@@ -201,12 +199,12 @@ html body .mrg_b_no{margin-bottom:0 !important}
     min-width:993px;
     width:993px;
     padding:0;
-    background:#F0F0F0 url(../img/bg_footer.png) no-repeat top left;
+    background:#F0F0F0 url(http://6.webperf-contest.appspot.com/img/bg_footer.png) no-repeat top left;
     margin:30px auto 0;
     padding-top:10px;
 }
 #footer .inside{
-    background:url(../img/bg_footer.png) no-repeat bottom left;
+    background:url(http://6.webperf-contest.appspot.com/img/bg_footer.png) no-repeat bottom left;
     padding:5px 20px 10px 20px;
 }
 #page, #page_2cols, #page_1col, #enfants {
@@ -320,13 +318,13 @@ html body .mrg_b_no{margin-bottom:0 !important}
 #TOP{height:91px}
 /*-----*/
 #topLEFT{float:left;width:147px;margin:0;}
-#logoFnac{display:block;width:76px;height:62px;text-indent:-5000px;margin:14px 0 0 23px;background: url(../img/logo-fnac-png24.png) no-repeat 0 0}
+#logoFnac{display:block;width:76px;height:62px;text-indent:-5000px;margin:14px 0 0 23px;background: url(http://6.webperf-contest.appspot.com/img/logo-fnac-png24.png) no-repeat 0 0}
 /*-----*/
 #topRIGHT{margin-left:148px}
-#CHAINES{overflow:hidden;padding:5px 0 5px 20px;background:url(../img/background-chaines.png) no-repeat top right}
-#CHAINES li{float:left;display:inline;padding-left:1px;background:url(../img/sprite-chaines.png) no-repeat -820px 0;}
+#CHAINES{overflow:hidden;padding:5px 0 5px 20px;background:url(http://5.webperf-contest.appspot.com/img/background-chaines.png) no-repeat top right}
+#CHAINES li{float:left;display:inline;padding-left:1px;background:url(http://5.webperf-contest.appspot.com/img/sprite-chaines.png) no-repeat -820px 0;}
 #CHAINES li.first{background:none}
-#CHAINES li a{display:block;height:20px;text-indent:-5000px;background-image:url(../img/sprite-chaines.png) ;background-repeat:no-repeat  }
+#CHAINES li a{display:block;height:20px;text-indent:-5000px;background-image:url(http://5.webperf-contest.appspot.com/img/sprite-chaines.png) ;background-repeat:no-repeat  }
 #CHAINES li a:hover{filter:alpha(opacity=60);	opacity:.60;}
 #CHAINES li a:active{outline:none}
 #ch-Myfnac a{width:82px; background-position:0 0 }
@@ -343,12 +341,12 @@ html body .mrg_b_no{margin-bottom:0 !important}
 #MONCOIN{float:left;width:35%;padding-top:18px;}
 #monCompte{float:left;width:33%;padding-top:4px}
 #monCompte img{vertical-align:-15%;padding-right:5px}
-#monCompte a{color:#000;background:url(../img/ico-mon-compte-png24.png) no-repeat 0 0;padding-left:17px;text-decoration:underline}
+#monCompte a{color:#000;background:url(http://6.webperf-contest.appspot.com/img/ico-mon-compte-png24.png) no-repeat 0 0;padding-left:17px;text-decoration:underline}
 #monCompte a:hover{text-decoration:none;}
 #monPanier{float:left;width:67%;position:relative;z-index:9997;	width:15.7em;}
 * html HeaderBasket{width:15.7em;}	    
 #monPanier #cartouche{position:relative;z-index:9999;height:23px;padding-left:6px}
-#monPanier #cartouche, #monPanier #cartouche p {background:transparent url(../img/background-panier.png) no-repeat left bottom;}
+#monPanier #cartouche, #monPanier #cartouche p {background:transparent url(http://6.webperf-contest.appspot.com/img/background-panier.png) no-repeat left bottom;}
 #monPanier #cartouche p{margin:0;padding-right:7px;line-height:23px;background-position: right bottom;}
 * html #monPanier #cartouche p{width:176px}
 #monPanier img.panier{display:block;float:left;padding-right:5px;}
@@ -358,7 +356,7 @@ html body .mrg_b_no{margin-bottom:0 !important}
 #monPanier .totArticles{display:block;float:left;width:6em;height:23px;color:#FFF}
 #monPanier .totArticles a {color:#FFF;text-decoration:none}
 #monPanier .totArticles a:hover {text-decoration:underline}
-#monPanier .switch{display:block;float:left;width:11px;height:23px;text-indent:-5000px;background:url(../img/ico-switch.png) no-repeat 0 0;cursor:pointer}
+#monPanier .switch{display:block;float:left;width:11px;height:23px;text-indent:-5000px;background:url(http://6.webperf-contest.appspot.com/img/ico-switch.png) no-repeat 0 0;cursor:pointer}
 #monPanier #rideau{position:absolute;left:0;top:19px;z-index:9998;}
 #monPanier #detailPanier{width:15.7em;background-color:#222;padding-top:6px;color:#FFF;display:none;}
 #monPanier #detailPanier dl{background-color:#222;border:solid 1px #777;border-top-width:0;padding:3px;margin:0}
@@ -380,7 +378,7 @@ html body .mrg_b_no{margin-bottom:0 !important}
     position:relative;
     margin-right:2px;
     padding-bottom:9px;
-    background:url(../img/reflet-onglets-png24.png) repeat-x 0 34px;
+    background:url(http://6.webperf-contest.appspot.com/img/reflet-onglets-png24.png) repeat-x 0 34px;
 }
 #MENU #onglets li.current,
 * html #MENU #onglets li{
@@ -390,7 +388,7 @@ html body .mrg_b_no{margin-bottom:0 !important}
     display:block;
     height:36px;
     text-indent:-5000px;
-    background-image:url(../img/sprite-onglets-png24.png) ;
+    background-image:url(http://5.webperf-contest.appspot.com/img/sprite-onglets-png24.png) ;
     background-repeat:no-repeat;
     position:relative;
     z-index:101;/* 1 couche de plus que les megaMenu */
@@ -501,7 +499,7 @@ html body .mrg_b_no{margin-bottom:0 !important}
     border-bottom-right-radius:5px;
     -moz-border-radius-bottomright:5px;
     -webkit-border-bottom-right-radius:5px;
-    background:#FFF url(../img/background-megaMenu.png) repeat-x 0 0;
+    background:#FFF url(http://6.webperf-contest.appspot.com/img/background-megaMenu.png) repeat-x 0 0;
     position:absolute;
     top:35px;
     z-index:100;/* doit reste une couche de moins que le lien des onglets .ongLink */
@@ -544,7 +542,7 @@ html body .mrg_b_no{margin-bottom:0 !important}
 #onglets .megaMenu dt, #onglets .megaMenu dt a{color:#DE9C00;font-weight:bold;margin-bottom:3px}
 #onglets .megaMenu dt a{text-decoration:underline}
 #onglets .megaMenu dt a:hover{text-decoration:none}
-#onglets .megaMenu dd{margin-bottom:3px;padding-left:9px;background: url(../img/chevron-raquo.png) no-repeat 0 5px}
+#onglets .megaMenu dd{margin-bottom:3px;padding-left:9px;background: url(http://6.webperf-contest.appspot.com/img/chevron-raquo.png) no-repeat 0 5px}
 #onglets .megaMenu dd a{color:#000;text-decoration:none}
 #onglets .megaMenu dd a:hover{text-decoration:underline}
 #onglets .megaMenu .vignet{display:block;width:150px;height:80px;position:absolute;bottom:0}		      
@@ -583,7 +581,7 @@ html body .mrg_b_no{margin-bottom:0 !important}
 
 #navigation .header h1,.navigation .header h1,#navigation .header, #navigation .header h2, #navigation .bottom, #navigation .bottom div, .navigation .header, .navigation .header h2, .navigation .bottom, .navigation .bottom div
 {
-    background:url(../img/navn2_background.png) no-repeat left top;
+    background:url(http://6.webperf-contest.appspot.com/img/navn2_background.png) no-repeat left top;
 }
 #navigation .header, #navigation .bottom , .navigation .header, .navigation .bottom, body.enfants #navigation .header, body.enfants #navigation .bottom{
     padding:0 0 0 14px;
@@ -812,7 +810,7 @@ Afin de ne pas faire de  redondance de code, les s�lecteurs seront simplement 
 /*contexte formatage */
 .produit .number, .produit .number span, .contact .number, .contact .number span{
     display:block;
-    background:url(../img/block_gris_number_corners.png) no-repeat left bottom;
+    background:url(http://6.webperf-contest.appspot.com/img/block_gris_number_corners.png) no-repeat left bottom;
 }
 .produit .number span, .contact .number span{
     padding: 1em 0 1em 0;
@@ -947,12 +945,12 @@ Afin de ne pas faire de  redondance de code, les s�lecteurs seront simplement 
     background-position:0 3px;
 }
 .produit dd.pictoPrixAdhNormal{
-    background-image:url(../img/offre-adherents.gif);
+    background-image:url(http://6.webperf-contest.appspot.com/img/offre-adherents.gif);
 }
 
 /*import ancienne feuille de style*/
 .produit dd.pictocoeur{
-    background-image:url(../img/minipictocoeur.gif);
+    background-image:url(http://6.webperf-contest.appspot.com/img/minipictocoeur.gif);
 }
 
 .produit dd .delStylePrice{
@@ -1458,7 +1456,7 @@ ul.topbuttons li{
 }
 /* inside_block_corners*/
 #tarif1 span.tl, .inside_block .tl, .inside_block .tr, .inside_block .bl, .inside_block .br{ /* lot2 */
-                                                                                             background-image:url(../img/inside_block_corners.gif);
+                                                                                             background-image:url(http://6.webperf-contest.appspot.com/img/inside_block_corners.gif);
 }
 /*****************
 * block :D�claration g�n�rique d'un block
@@ -1636,10 +1634,10 @@ ul.topbuttons li{
 }
 
 .filled .flat .tl, .filled .flat .tr, .filled .flat .bl, .filled .flat .br{ /* coin sur fond parent gris */
-                                                                            background-image:url(../img/block_flat_corners_gris.png);
+                                                                            background-image:url(http://6.webperf-contest.appspot.com/img/block_flat_corners_gris.png);
 }
 .bg_gris .flat .tl, .bg_gris  .flat .tr, .bg_gris  .flat .bl, .bg_gris .flat .br{ /* coin sur fond parent gris */
-                                                                                  background-image:url(../img/block_flat_corners_gris_plein.png);
+                                                                                  background-image:url(http://6.webperf-contest.appspot.com/img/block_flat_corners_gris_plein.png);
 }
 .block .filled_black{
     background-color:#000; /* noir */
@@ -1668,7 +1666,7 @@ ul.topbuttons li{
 /* ombre de fin de block */
 .btmshadow, .btmshadow b{
     display:block;
-    background:url(../img/bottom_shadow.png) repeat-x left top;
+    background:url(http://6.webperf-contest.appspot.com/img/bottom_shadow.png) repeat-x left top;
 }
 .btmshadow, .btmshadow2{
     padding-left:10px;
@@ -1684,7 +1682,7 @@ ul.topbuttons li{
 /* Les styles qui suivent ne vont r��crire que certaines propri�t�s qui ont �t� d�finies plus haut, mais pour certaines blocks elles doivent �tre r��crites. */
 /* ========  mise_en_avant ========= */
 .mise_en_avant .blk_header, .mise_en_avant .blk_header span, .mise_en_avant .blk_header a{
-    background-image:url(../img/mise_en_avant_header.png);
+    background-image:url(http://6.webperf-contest.appspot.com/img/mise_en_avant_header.png);
     color:#FFF; /* blanc */
     margin:0;
 }
@@ -1713,7 +1711,7 @@ ul.topbuttons li{
 .mise_en_avant .bl{bottom:0;left:0;}
 .mise_en_avant .br{bottom:0;right:0;}
 #col_centre .mise_en_avant .tl, #col_centre .mise_en_avant .tr, #col_centre .mise_en_avant .bl, #col_centre .mise_en_avant .br{
-    background-image:url(../img/mise_en_avant_corners.png);
+    background-image:url(http://6.webperf-contest.appspot.com/img/mise_en_avant_corners.png);
 }
 
 
@@ -1809,7 +1807,7 @@ ul.topbuttons li{
 /* ======= block_rouge =======*/
 .block_rouge_mea .blk_header, .block_rouge_mea .blk_header span, .block_rouge_mea .blk_header a{
     background-color:#FFF; /* blanc */
-    background-image:url(../img/block_rouge_mea_header.png);
+    background-image:url(http://6.webperf-contest.appspot.com/img/block_rouge_mea_header.png);
 }
 .block_rouge .blk_inside{
     border-left:1px solid #DD0000; /* rouge */
@@ -1893,7 +1891,7 @@ ul.topbuttons li{
 
 .block_jaune_mea .blk_header, .block_jaune_mea .blk_header span, .block_jaune_mea .blk_header a{
     background-color:#FFF; /* blanc */
-    background-image:url(../img/block_jaune_mea_header.png);
+    background-image:url(http://6.webperf-contest.appspot.com/img/block_jaune_mea_header.png);
 }
 .block_jaune .blk_inside{
     border:1px solid #F9D500; /* jaune */
@@ -1965,7 +1963,7 @@ ul.topbuttons li{
 /* ======= block_bleu =======  */
 .block_bleu .blk_header, .block_bleu .blk_header span, .block_bleu .blk_header a{
     background-color:#0099CC; /* bleu clair */
-    background-image:url(../img/block_bleu_header.png);
+    background-image:url(http://6.webperf-contest.appspot.com/img/block_bleu_header.png);
     color:#FFF; /* blanc */
 }
 .block_bleu .blk_inside{
@@ -1978,7 +1976,7 @@ ul.topbuttons li{
     color:#0099CC; /* bleu clair  */
 }
 .block_bleu .cadre_produit .tl, .block_bleu .cadre_produit .tr, .block_bleu .cadre_produit .bl, .block_bleu .cadre_produit .br{
-    background-image:url(../img/block_cadre_prod_bleu_corner.png);
+    background-image:url(http://6.webperf-contest.appspot.com/img/block_cadre_prod_bleu_corner.png);
 }
 .block_bleu .cadre_produit .number{
     border-color:#47B5DA; /* bleu clair */
@@ -2019,7 +2017,7 @@ ul.topbuttons li{
 }
 .block_orange_mea .blk_header, .block_orange_mea .blk_header span, .block_orange_mea .blk_header a{
     background-color:#FFF; /* blanc */
-    background-image:url(../img/block_orange_mea_header.png);
+    background-image:url(http://6.webperf-contest.appspot.com/img/block_orange_mea_header.png);
 }
 .block_orange .blk_footer .links, .block_orange .blk_footer .links a{
     color:#FF6600; /* orange */
@@ -2072,16 +2070,16 @@ ul.topbuttons li{
 /* ======= block_noir ======= */
 .block_noir .blk_header, .block_noir .blk_header span, .block_noir .blk_header a{
     background-color:#000; /* noir */
-    background-image:url(../img/block_noir_header.png);
+    background-image:url(http://6.webperf-contest.appspot.com/img/block_noir_header.png);
     color:#FFF; /* blanc */
 }
 #col_gauche .block_noir .blk_header, #col_gauche .block_noir .blk_header span, #col_gauche .block_noir .blk_header a, #col_droite .block_noir .blk_header, #col_droite .block_noir .blk_header span, #col_droite .block_noir .blk_header a{
     color:#DE9C00; /* moutarde */
-    background-image:url(../img/block_noir_header_on_col.png);
+    background-image:url(http://6.webperf-contest.appspot.com/img/block_noir_header_on_col.png);
 }
 #col_gauche .block_top .blk_header, #col_gauche .block_top .blk_header span, #col_gauche .block_top .blk_header a, #col_droite .block_top .blk_header, #col_droite .block_top .blk_header span, #col_droite .block_top .blk_header a{
     color:#DE9C00; /* moutarde */
-    background-image:url(../img/block_noir_header_on_col.png);
+    background-image:url(http://6.webperf-contest.appspot.com/img/block_noir_header_on_col.png);
 }
 .block_noir .blk_inside{
     border:1px solid #CCC; /* gris  */
@@ -2110,7 +2108,7 @@ ul.topbuttons li{
 .block_noir .cadre_produit .tr,
 .block_noir .cadre_produit .bl,
 .block_noir .cadre_produit .br {
-    background-image:url(../img/block_cadre_prod_noir_corner.png);
+    background-image:url(http://6.webperf-contest.appspot.com/img/block_cadre_prod_noir_corner.png);
 }
 
 #col_droite .block_noir .links{
@@ -2185,7 +2183,7 @@ ul.topbuttons li{
     margin:3px 10px 0 0;
     height:13px;
     text-indent:-5000px;
-    background:url(../img/rechercher.png) no-repeat left top;
+    background:url(http://6.webperf-contest.appspot.com/img/rechercher.png) no-repeat left top;
 }
 .block_search .text, #HEADER .block_search .text {
     width: 16.5em;
@@ -2216,7 +2214,7 @@ ul.topbuttons li{
     position:relative;
     margin:0;
     border:none;
-    background: url(../img/bt-rechercher.png) no-repeat left top;
+    background: url(http://6.webperf-contest.appspot.com/img/bt-rechercher.png) no-repeat left top;
 }
 .block_search .submit input{
     position:absolute;
@@ -2523,7 +2521,7 @@ ul.enf_vignette li.link_1 a {font-weight:bold}
 #footer dd{
     color:#CE9014;
     list-style-position:inside;
-    background:transparent url(../img/footerSquare.gif) no-repeat 0 5px;
+    background:transparent url(http://6.webperf-contest.appspot.com/img/footerSquare.gif) no-repeat 0 5px;
     padding:0 0 0 10px;
     margin:0;
     font-size:11px;

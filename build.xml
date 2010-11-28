@@ -16,9 +16,9 @@
 
     <target name="prepare-distant">
         <property name="domain.www" value="http://entries.webperf-contest.com/4cc5b38b1c1b8/" />
-        <property name="domain.s1" value="1.webperf-contest.appspot.com/" />
-        <property name="domain.s2" value="2.webperf-contest.appspot.com/" />
-        <property name="domain.s3" value="3.webperf-contest.appspot.com/" />
+        <property name="domain.s1" value="http://1.webperf-contest.appspot.com/" />
+        <property name="domain.s2" value="http://2.webperf-contest.appspot.com/" />
+        <property name="domain.s3" value="http://3.webperf-contest.appspot.com/" />
         <phingcall target="prepare" />
     </target>
 

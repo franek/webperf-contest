@@ -2,7 +2,7 @@
 	display:block;
 	width:101px;
 	height:55px;
-	background-image     : url(../img/sprite-logo.png);
+	background-image     : url(http://4.webperf-contest.appspot.com/img/sprite-logo.png);
 	background-color     : transparent;
 	background-repeat    : no-repeat;
 }
@@ -50,7 +50,7 @@ background-position  : -404px -0px;
 
 /* sprite layout */
 .aide-suivi-commande {
-background-image: url(../img/sprite-layout.jpeg);
+background-image: url(http://4.webperf-contest.appspot.com/img/sprite-layout.jpeg);
 width:200px;
 height:58px;
 display:block;
@@ -59,7 +59,7 @@ background-position  : -0px -0px;
 
 .vignette_prp_enfant
 {
-background-image: url(../img/sprite-layout.jpeg);
+background-image: url(http://4.webperf-contest.appspot.com/img/sprite-layout.jpeg);
 background-position  : -2552px -0px;
 width:184px;
 height:84px;
@@ -67,7 +67,7 @@ display:block;
 }
 
 .oui-oui-et-le-cadeau-surprise {
-background-image: url(../img/sprite-layout.jpeg);
+background-image: url(http://4.webperf-contest.appspot.com/img/sprite-layout.jpeg);
 width:184px;
 height:100px;
 display:block;
@@ -75,7 +75,7 @@ background-position  : -1250px -0px;
 }
 
 .pomme-d-api-magazine {
-background-image: url(../img/sprite-layout.jpeg);
+background-image: url(http://4.webperf-contest.appspot.com/img/sprite-layout.jpeg);
 background-position  : -1768px -0px;
 width:184px;
 height:100px;
@@ -83,7 +83,7 @@ display:block;
 }
 
 .vtech-184 {
-background-image: url(../img/sprite-layout.jpeg);
+background-image: url(http://4.webperf-contest.appspot.com/img/sprite-layout.jpeg);
 background-position  : -2736px -0px;
 width:184px;
 height:110px;
@@ -91,7 +91,7 @@ display:block;
 }
 
 .playmobil-184 {
-background-image: url(../img/sprite-layout.jpeg);
+background-image: url(http://4.webperf-contest.appspot.com/img/sprite-layout.jpeg);
 background-position  : -1584px -0px;
 width:184px;
 height:110px;
@@ -99,7 +99,7 @@ display:block;
 }
 
 .eveiletjeux4 {
-background-image: url(../img/eveiletjeux4.png);
+background-image: url(http://4.webperf-contest.appspot.com/img/eveiletjeux4.png);
 width:154px;
 height:26px;
 display:block;
@@ -107,7 +107,7 @@ background-repeat:no-repeat;
 }
 
 .a186x756_25082010{
-background-image: url(../img/186x756_25082010.gif);
+background-image: url(http://4.webperf-contest.appspot.com/img/186x756_25082010.gif);
 width:186px;
 height:756px;
 display:block;
@@ -115,7 +115,7 @@ background-repeat:no-repeat;
 }
 
 #univ_heros_titre{
-background-image: url(../img/univ_heros_titre.png);
+background-image: url(http://4.webperf-contest.appspot.com/img/univ_heros_titre.png);
 width:424px;
 height:30px;
 display:block;
@@ -127,7 +127,7 @@ display:none;
 }
 
 #titres{
-background-image: url(../img/vignette_enfants.png);
+background-image: url(http://4.webperf-contest.appspot.com/img/vignette_enfants.png);
 width:180px;
 height:62px;
 display:block;
@@ -143,7 +143,7 @@ display:block;
 width:150px;
 height:80px;
 background-repeat:no-repeat;
-background-image: url(../img/sprite-layout.jpeg);
+background-image: url(http://4.webperf-contest.appspot.com/img/sprite-layout.jpeg);
 }
 
 #fnacbook{
